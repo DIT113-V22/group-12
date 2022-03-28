@@ -21,7 +21,6 @@ The first problem it will solve is it will minimize car crashes due to human tir
 1.We plan to develop an application using Android studio as a GUI. The application will include login functionality using credentials, and all data would be stored in a JSON file.
 2.  Users who have credentials can control the smart car direction with the remote control function in our application. While customers can only track their order using the app and be notified of any updates.
 4. We are going to modify the default car by writing our own algorithm and script for the new vehicle that will fulfill the requirements of a medical vehicle in Arduino using the smartCar shield library. 
-5. We plan to implement cruise control during night delivering.
 
 
 ## Expected impact 🌏
@@ -29,4 +28,16 @@ The first problem it will solve is it will minimize car crashes due to human tir
 - Road accident reduction
 - Financial expenditure reduction
 - Minimizing risk of transmitting airborne diseases through a courier-delivery.  
+
+
+## Group members 
+
+ Anton Golubenko (gusgoluan@student.gu.se)
+ Akuen Akoi Deng (gusdengak@student.gu.se)
+ Kanokwan Haesatith (gushaeka@student.gu.se)
+ Marwa Selwaye (gusselwma@student.gu.se)
+ Nazli Moghaddam (gusmogna@student.gu.se)
+ Nathalie Berger (gusbergena@student.gu.se)
+
+
 
