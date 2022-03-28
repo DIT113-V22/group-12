@@ -32,12 +32,12 @@ The first problem it will solve is it will minimize car crashes due to human tir
 
 ## Group members 
 
- Anton Golubenko (gusgoluan@student.gu.se)
- Akuen Akoi Deng (gusdengak@student.gu.se)
- Kanokwan Haesatith (gushaeka@student.gu.se)
- Marwa Selwaye (gusselwma@student.gu.se)
- Nazli Moghaddam (gusmogna@student.gu.se)
- Nathalie Berger (gusbergena@student.gu.se)
+ - Anton Golubenko (gusgoluan@student.gu.se)
+ - Akuen Akoi Deng (gusdengak@student.gu.se)
+ - Kanokwan Haesatith (gushaeka@student.gu.se)
+ - Marwa Selwaye (gusselwma@student.gu.se)
+ - Nazli Moghaddam (gusmogna@student.gu.se)
+ - Nathalie Berger (gusbergena@student.gu.se)
 
 
 
