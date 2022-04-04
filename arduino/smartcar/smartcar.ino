@@ -34,7 +34,7 @@ void loop() {
 
     Serial.println(frontSensor.getDistance());
     delay(100);
-    if(frontSensor.getDistance() >= 50){
+    if(frontSensor.getDistance() <= 50 && frontSensor.getDistance() != 0){
         stopCar();
     }
     else {
