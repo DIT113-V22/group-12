@@ -1,9 +1,45 @@
-#include <Smartcar.h>
+#include <SmartCar.h>
+
+const int triggerPin = 6;
+const int echoPin = 7;
+const unsigned int maxDistance = 100;
+
+ArduinoRuntime arduinoRuntime;
+
+BrushedMotor leftMotor(arduinoRuntime, smartcarlib::pins::v2::leftMotorPins);
+BrushedMotor rightMotor(arduinoRuntime, smartcarlib::pins::v2::rightMotorPins);
+
+DifferentialControl control(leftMotor, rightMotor);
+
+SR04 frontSensor(arduinoRuntime, triggerPin, echoPin, maxDistance);
+
+SimpleCar car(control);
+
+const auto forwardSpeed = 30;
+const auto stopSpeed = 0;
+
+void stopCar(){
+    car.setSpeed(stopSpeed);
+}
+void startCar(){
+    car.setSpeed(forwardSpeed);
+}
 
 void setup() {
-  // put your setup code here, to run once:
+
+    Serial.begin(9600);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+
+    Serial.println(frontSensor.getDistance());
+    delay(100);
+    if(frontSensor.getDistance() > 0){
+        stopCar();
+    }
+    else {
+        startCar();
+    }
+    delay(100);
+
 }
