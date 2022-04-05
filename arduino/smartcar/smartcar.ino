@@ -28,18 +28,17 @@ void startCar(){
 void setup() {
 
     Serial.begin(9600);
+    startCar();
 }
 
 void loop() {
 
     Serial.println(frontSensor.getDistance());
-    delay(100);
-    if(frontSensor.getDistance() <= 50 && frontSensor.getDistance() != 0){
+   
+    if(frontSensor.getDistance() <= 50 && frontSensor.getDistance() > 0){
         stopCar();
     }
-    else {
-        startCar();
-    }
-    delay(100);
+    
+    delay(1);
 
 }
