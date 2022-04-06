@@ -1,4 +1,4 @@
-#include <SmartCar.h>
+#include <Smartcar.h>
 
 const int triggerPin = 6;
 const int echoPin = 7;
