@@ -1,25 +1,19 @@
-name: Arduino CI
+name: Android CI
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
-  build-sketch:
-    runs-on: ubuntu-20.04
+  build-app:
+    runs-on: ubuntu-latest
     steps:
-      - name: Clone Repo
-        uses: actions/checkout@v2
-      - name: Install Arduino CLI
-        uses: arduino/setup-arduino-cli@v1.1.1
-      - name: Get Python3
-        uses: actions/setup-python@v2
+      - name: Setup JDK 
+        uses: actions/setup-java@v1.8
         with:
-          python-version: '3.x'
-      - name: Fetch sketch dependencies
+          java-version: 1.8
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Build Application
         run: |
-          pip3 install pyserial
-          arduino-cli core update-index --additional-urls "https://dl.espressif.com/dl/package_esp32_index.json"
-          arduino-cli core install esp32:esp32 --additional-urls "https://dl.espressif.com/dl/package_esp32_index.json"
-          arduino-cli lib install "Smartcar shield"
-      - name: Build sketch
-        run: |
-          arduino-cli compile -b esp32:esp32:esp32doit-devkit-v1 arduino/smartcar/smartcar.ino
+          cd Application
+          ../gradlew build --stacktrace
+  
