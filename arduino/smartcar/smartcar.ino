@@ -33,9 +33,10 @@ void setup() {
 
 void loop() {
 
-    Serial.println(frontSensor.getDistance());
-   
-    if(frontSensor.getDistance() <= 50 && frontSensor.getDistance() > 0){
+    const auto distance = frontSensor.getDistance();
+    Serial.println(distance);
+    
+    if(distance < 50 && distance > 0){
         stopCar();
     }
     
