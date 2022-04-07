@@ -2,6 +2,9 @@ name: Android CI
 
 on: [push, pull_request]
 
+defaults:
+  run:
+    working-directory: CarEshipApp
 
 jobs:
   build:
