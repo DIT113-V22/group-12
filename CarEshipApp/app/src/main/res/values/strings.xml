@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">CarEshipApp</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="login">LOGIN</string>
+    <string name="create_account">CREATE ACCOUNT</string>
+    <string name="please_choose_your_symptoms">Please Choose Your symptoms</string>
+    <string name="symptoms_and_conditions">Symptoms and conditions</string>
+    <string name="heart_disease">Heart Disease</string>
+    <string name="common_cold">common cold</string>
+    <string name="allergies">allergies</string>
+    <string name="anxiety">anxiety</string>
+    <string name="asthma">asthma</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="enter_your_email">Enter your Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="confirm_password">Confirm password</string>
 </resources>
