@@ -13,7 +13,7 @@ public class DBHelperClass extends SQLiteOpenHelper {
     public static final String DBNAME = "Users.db";
 
     public DBHelperClass(Context context) {
-        super(context, "Users.db", null, 1);//constructor for the users database.
+        super(context, DBNAME, null, 1);//constructor for the users database.
     }
 //another column "userType" that distinguishes customer from admin will be added later, if needed.
 
