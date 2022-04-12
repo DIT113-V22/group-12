@@ -33,7 +33,7 @@
         tools:text="Sign in" />
 
     <EditText
-        android:id="@+id/Username"
+        android:id="@+id/Username2"
         android:layout_width="410dp"
         android:layout_height="68dp"
         android:layout_marginTop="32dp"
@@ -49,10 +49,10 @@
         app:layout_constraintTop_toBottomOf="@+id/signIn" />
 
     <EditText
-        android:id="@+id/passwordReentry"
+        android:id="@+id/password2"
         android:layout_width="402dp"
         android:layout_height="65dp"
-        android:layout_below="@id/Username"
+        android:layout_below="@id/Username2"
         android:layout_marginTop="16dp"
         android:background="#30ffffff"
         android:drawableStart="@drawable/ic_baseline_vpn_key_24"
@@ -65,7 +65,7 @@
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Username" />
+        app:layout_constraintTop_toBottomOf="@+id/Username2" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/LoginButton"
@@ -78,10 +78,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordReentry" />
+        app:layout_constraintTop_toBottomOf="@+id/password2" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/CreateAccountButton"
+        android:id="@+id/CreateAccountButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -105,7 +105,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CreateAccountButton"
+        app:layout_constraintTop_toBottomOf="@+id/CreateAccountButton2"
         app:layout_constraintVertical_bias="0.183" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
