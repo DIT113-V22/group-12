@@ -110,12 +110,12 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="172dp"
-        android:layout_height="193dp"
-        android:layout_marginBottom="328dp"
+        android:layout_width="166dp"
+        android:layout_height="168dp"
+        android:layout_marginBottom="336dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.217"
+        app:layout_constraintHorizontal_bias="0.248"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
