@@ -3,17 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_height="match_parent">
 
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="414dp"
         android:layout_height="742dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/background_gardient"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints" />
+        />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -42,7 +44,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.794"
+        app:layout_constraintHorizontal_bias="0.767"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -59,14 +61,15 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.239"
+        app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toStartOf="parent" />
+
 
     <EditText
         android:id="@+id/editTextNumber"
         android:layout_width="110dp"
         android:layout_height="40dp"
-        android:layout_marginStart="152dp"
+        android:layout_marginStart="148dp"
         android:ems="10"
         android:inputType="number"
         android:text="0"
@@ -76,8 +79,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.607" />
-
+        app:layout_constraintVertical_bias="0.606" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
@@ -107,6 +109,7 @@
         app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/backslash" />
+
 
     <TextView
         android:id="@+id/textView2"
