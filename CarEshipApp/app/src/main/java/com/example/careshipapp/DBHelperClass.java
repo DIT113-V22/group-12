@@ -10,7 +10,14 @@ import androidx.annotation.Nullable;
 
 public class DBHelperClass extends SQLiteOpenHelper {
 
-    public static final String DBNAME = "Users.db";
+    private static final String DBNAME = "Users.db";
+    private static final String TABLEUSERS = "Users";
+    private static final String USERNAME = "username";
+    private static final String PASSWORD = "password";
+    private static final String CREATEUSERSTABLE = "CREATE TABLE " + TABLEUSERS + " ("
+            + USERNAME + " TEXT PRIMARY KEY AUTOINCREMENT, "
+            + PASSWORD + " TEXT)";
+
 
     public DBHelperClass(Context context) {
         super(context, DBNAME, null, 1);//constructor for the users database.
@@ -20,43 +27,45 @@ public class DBHelperClass extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase usersDB) {
         //Creating database table of users, where username is primary key, and password is user's password for login.
-        usersDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
+        usersDB.execSQL(CREATEUSERSTABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase usersDB, int i, int i1) {
         //Method to upgrade the database.
-        usersDB.execSQL("drop Table if exists users");
+        //usersDB.execSQL("DROP TABLE if exists TABLEUSERS");
 
     }
 
-    public Boolean insertData(String username, String password){
+    public void insertData(String username, String password){
         //Method for inserting the data into users table.
         SQLiteDatabase usersDB = this.getWritableDatabase();
         ContentValues values = new ContentValues();//Storing values.
 
-        values.put("username", username);//Inserting username into values.
-        values.put("password", password);//Inserting password into values.
+        values.put(USERNAME, username);//Inserting username into values.
+        values.put(PASSWORD, password);//Inserting password into values.
 
-        long outcome = usersDB.insert("users", null, values);//Inserting the values into the table users.
+        usersDB.insert(TABLEUSERS, null, values);//Inserting the values into the table users.
 
-        return outcome != -1; //Return false if outcome is -1, and true if it is not -1.
+        usersDB.close();
+
+    }
+
+    public Boolean usernameExistsCheck(String username){
+        //Method that checks if user exists in the database.
+        SQLiteDatabase usersDB = this.getWritableDatabase();
+        Cursor cursor = usersDB.rawQuery("SELECT * FROM Users WHERE username = ?", new String[] {username});
+
+        return cursor.getCount() > 0;
+
     }
 
     public Boolean userExistsCheck(String username, String password){
         //Method that checks if user exists in the database.
         SQLiteDatabase usersDB = this.getWritableDatabase();
-        Cursor cursor = usersDB.rawQuery("SELECT * FROM users WHERE username = ? and password = ?", new String[] {username, password});
+        Cursor cursor = usersDB.rawQuery("SELECT * FROM Users WHERE username = ? and password = ?", new String[] {username, password});
 
         return cursor.getCount() > 0;
 
-    }
-
-    public Boolean adminExistsCheck(String username){
-        //Method that checks if admin exists in the database.
-        SQLiteDatabase usersDB = this.getWritableDatabase();
-        Cursor cursor = usersDB.rawQuery("SELECT * FROM users WHERE username LIKE 'admin%' and '%carEship%'", new String[] {username});
-
-        return cursor.getCount() > 0;
     }
 }

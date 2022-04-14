@@ -36,21 +36,16 @@ public class MainActivityLoginPage extends AppCompatActivity {
                 if(email.isEmpty() || passwrd.isEmpty()){
                     Toast.makeText(MainActivityLoginPage.this, "Please enter valid credentials.", Toast.LENGTH_SHORT).show();
                 }
-                else{
-                    Boolean userCheck = database.userExistsCheck(email, passwrd);
-                    Boolean adminCheck = database.adminExistsCheck(email);
-                    if(userCheck){
-                        Toast.makeText(MainActivityLoginPage.this, "Login successful", Toast.LENGTH_SHORT).show();
-                        /*Intent intent = new Intent(getApplicationContext(), nextscreen);
-                        startActivity(intent);*/
-                    }
-                    if(adminCheck){
-                        Toast.makeText(MainActivityLoginPage.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        Toast.makeText(MainActivityLoginPage.this, "Login failed, incorrect username or password, please try again.", Toast.LENGTH_SHORT).show();
-                    }
+                Boolean userCheck = database.userExistsCheck(email, passwrd);
 
+
+                if(userCheck == true){
+                    Toast.makeText(MainActivityLoginPage.this, "Login successful", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), CustomerItemVerify.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(MainActivityLoginPage.this, "Login failed, incorrect username or password, please try again.", Toast.LENGTH_SHORT).show();
                 }
 
             }
