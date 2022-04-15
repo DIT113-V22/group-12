@@ -16,13 +16,13 @@
             android:name=".MainActivityCreateAccount"
             android:exported="false" />
         <activity
-            android:name=".MainActivityLoginPage"
+            android:name=".CustomerPayment"
             android:exported="true" />
         <activity
             android:name=".CustomerItemVerify"
             android:exported="true" />
         <activity
-            android:name=".CustomerPayment"
+            android:name=".MainActivityLoginPage"
             android:exported="true" >
 
 
