@@ -10,14 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarEshipApp" >
 
-        <activity
+       <activity
             android:name=".MainActivityCategoryList"
             android:exported="false" />
         <activity
             android:name=".MainActivityCreateAccount"
             android:exported="false" />
         <activity
-            android:name=".CustomerPayment"
+            android:name=".MainActivityLoginPage"
             android:exported="true" />
         <activity
             android:name=".CustomerItemVerify"
@@ -30,9 +30,6 @@
             android:exported="true" />
         <activity
             android:name=".UserActivityController"
-
-            android:name=".MainActivityLoginPage"
-
             android:exported="true" >
 
             <intent-filter>
