@@ -37,46 +37,22 @@ public class MainActivityCreateAccount extends AppCompatActivity {
                 if(email.isEmpty() || passwrd.isEmpty() || repeatPassword.isEmpty()){
                     Toast.makeText(MainActivityCreateAccount.this, "Please enter non-empty values.", Toast.LENGTH_SHORT).show();
                 }
-                else{
-                    if(passwrd.equals(repeatPassword)){
-                        Boolean customerChecking = database.userExistsCheck(email, passwrd);
-                        Boolean adminChecking = database.adminExistsCheck(email);
+                else if(passwrd.equals(repeatPassword)) {
+                    Boolean userCheck = database.userExistsCheck(email, passwrd);
+                    Boolean usernameCheck = database.usernameExistsCheck(email);
 
-                        if(!customerChecking){
-                            Boolean checkInsertedData = database.insertData(email, passwrd);
-                            if(checkInsertedData){
-                                Toast.makeText(MainActivityCreateAccount.this, "Account created successfully.", Toast.LENGTH_SHORT).show();
-                               /* Intent intent = new Intent(getApplicationContext(), nextscreen); this action leads to the next screen after creation of the account.
-                                startActivity(intent);*/
-                            }
-                            else{
-                                Toast.makeText(MainActivityCreateAccount.this, "Failed to create the account", Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                        else if(!adminChecking){
-                            Boolean checkInsertedData = database.insertData(email, passwrd);
-                            if(checkInsertedData){
-                                Toast.makeText(MainActivityCreateAccount.this, "Account created successfully.", Toast.LENGTH_SHORT).show();
-                               /* Intent intent = new Intent(getApplicationContext(), nextscreen); this action leads to the next screen after creation of the account.
-                                startActivity(intent);*/
-                            }
-                            else{
-                                Toast.makeText(MainActivityCreateAccount.this, "Failed to create the account.", Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                        else{
-                            Toast.makeText(MainActivityCreateAccount.this, "Account already exists.", Toast.LENGTH_SHORT).show();
-                        }
-
-
+                    if(userCheck == false && usernameCheck == false){
+                        database.insertData(email, passwrd);
+                        Toast.makeText(MainActivityCreateAccount.this, "Account created successfully.", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivityCreateAccount.this, MainActivityLoginPage.class);
+                        startActivity(intent);
                     }
                     else{
-                        Toast.makeText(MainActivityCreateAccount.this, "Please repeat the password.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivityCreateAccount.this, "Username or/and password are taken, please try again.", Toast.LENGTH_SHORT).show();
                     }
-
-
+                }
+                else{
+                    Toast.makeText(MainActivityCreateAccount.this, "The re-entered password is incorrect.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

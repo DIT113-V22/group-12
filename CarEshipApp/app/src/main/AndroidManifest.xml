@@ -17,7 +17,7 @@
             android:name=".MainActivityCreateAccount"
             android:exported="false" />
         <activity
-            android:name=".MainActivityLoginPage"
+            android:name=".CustomerPayment"
             android:exported="true" />
         <activity
             android:name=".CustomerItemVerify"
@@ -30,6 +30,9 @@
             android:exported="true" />
         <activity
             android:name=".UserActivityController"
+
+            android:name=".MainActivityLoginPage"
+
             android:exported="true" >
 
             <intent-filter>
