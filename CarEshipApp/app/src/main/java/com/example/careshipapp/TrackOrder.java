@@ -1,8 +1,10 @@
-package com.example.careship;
+package com.example.careshipapp;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.careshipapp.R;
 
 public class TrackOrder extends AppCompatActivity {
 
