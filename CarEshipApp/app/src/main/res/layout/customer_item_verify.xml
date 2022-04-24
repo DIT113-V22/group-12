@@ -3,39 +3,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:textAlignment="center">
 
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="414dp"
-        android:layout_height="742dp"
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="252dp"
+        android:background="#EB6A9ECA"
+        android:backgroundTint="#666A9ECA"
+        android:hint="         0"
+        android:textColor="#FDFDFD"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background_gardient"
-        />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="376dp"
-        android:layout_height="128dp"
-        android:layout_marginBottom="612dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        android:layout_width="118dp"
+        android:layout_height="55dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
+
 
     <Button
         android:id="@+id/plus"
-        android:layout_width="75dp"
-        android:layout_height="40dp"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginBottom="272dp"
-        android:backgroundTint="#547FD5"
+        android:layout_marginBottom="252dp"
+        android:backgroundTint="#EB6A9ECA"
         android:onClick="increment"
         android:text="+"
         android:textAlignment="center"
@@ -44,49 +48,33 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.767"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView6" />
 
     <Button
         android:id="@+id/minus"
         android:layout_width="70dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:layout_marginBottom="272dp"
-        android:backgroundTint="#547FD5"
+        android:layout_marginBottom="252dp"
+        android:backgroundTint="#EB6A9ECA"
         android:onClick="decrement"
         android:text="-"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintEnd_toStartOf="@+id/textView6"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
-
-
-    <EditText
-        android:id="@+id/editTextNumber"
-        android:layout_width="110dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="148dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="0"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.606" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
         android:layout_width="228dp"
         android:layout_height="54dp"
         android:layout_marginBottom="48dp"
-        android:background="@drawable/background_gardient"
+        android:background="@drawable/button"
+        android:backgroundTint="#EB6A9ECA"
         android:text="Go to payment"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
@@ -98,72 +86,72 @@
         app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="309dp"
-        android:layout_height="218dp"
-        android:layout_marginBottom="320dp"
+        android:layout_width="353dp"
+        android:layout_height="247dp"
+        android:layout_marginBottom="304dp"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/backslash" />
-
+        app:srcCompat="@drawable/background_gardient" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="166dp"
         android:layout_height="168dp"
-        android:layout_marginBottom="336dp"
+        android:layout_marginBottom="344dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.248"
+        app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView1"
         android:layout_width="118dp"
         android:layout_height="42dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginBottom="116dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="108dp"
+        android:background="@color/input"
+        android:backgroundTint="@color/input"
         android:text="Total price:"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/Marine_blue"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="100dp"
-        android:layout_height="41dp"
+        android:layout_width="80dp"
+        android:layout_height="43dp"
         android:layout_marginEnd="112dp"
-        android:layout_marginBottom="116dp"
+        android:layout_marginBottom="108dp"
+        android:hint="0 kr"
         android:textColor="#FDFDFD"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="125dp"
-        android:layout_height="121dp"
-        android:layout_marginTop="248dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.793"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pills" />
+        android:id="@+id/imageView16"
+        android:layout_width="192dp"
+        android:layout_height="234dp"
+        app:srcCompat="@drawable/medicine"
+        tools:layout_editor_absoluteX="190dp"
+        tools:layout_editor_absoluteY="180dp" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button2"
-        android:layout_width="43dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="128dp"
-        android:background="@android:drawable/ic_menu_revert"
-        android:backgroundTint="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="244dp"
+        android:layout_height="48dp"
+        android:text="Item information"
+        android:textColor="@color/Marine_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="130dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

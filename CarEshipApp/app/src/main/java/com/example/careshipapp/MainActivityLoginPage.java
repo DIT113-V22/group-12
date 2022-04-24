@@ -21,7 +21,7 @@ public class MainActivityLoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_login_page);
 
-        username = (EditText) findViewById(R.id.Username2);
+        username = (EditText) findViewById(R.id.Email);
         password = (EditText) findViewById(R.id.password2);
         loginButton = (MaterialButton) findViewById(R.id.LoginButton);
         createAccountButton2 = (MaterialButton) findViewById(R.id.CreateAccountButton2);

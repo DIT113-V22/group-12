@@ -4,111 +4,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@null"
     tools:context=".MainActivityCategoryList">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="258dp"
-        android:layout_height="91dp"
+        android:layout_width="117dp"
+        android:layout_height="33dp"
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-    <TextView
-        android:id="@+id/Symptoms"
-        android:layout_width="405dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="28dp"
-        android:gravity="center"
-        android:text="@string/please_choose_your_symptoms"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/symptomsEntry"
         android:layout_width="368dp"
         android:layout_height="60dp"
-        android:layout_below="@id/Symptoms"
-        android:layout_marginTop="24dp"
-        android:background="#30ffffff"
+        android:layout_marginTop="248dp"
+
+        android:background="#5E2196F3"
+        android:backgroundTint="#5E2196F3"
         android:drawableStart="@drawable/ic_baseline_search_24"
         android:drawablePadding="20dp"
         android:hint="@string/symptoms_and_conditions"
         android:inputType="text"
         android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="#5E498AA8"
+        android:textColorHint="#5E498AA8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Symptoms" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/heartDisease"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/black"
+        android:layout_width="175dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="#489B27B0"
         android:text="@string/heart_disease"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/symptomsEntry" />
 
     <Button
         android:id="@+id/commonCold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/black"
+        android:layout_width="175dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#777454AC"
         android:text="@string/common_cold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heartDisease" />
 
     <Button
         android:id="@+id/allergies"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/black"
+        android:layout_width="175dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#7E3F51B5"
         android:text="@string/allergies"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/commonCold" />
 
     <Button
         android:id="@+id/anxiety"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/black"
+        android:layout_width="175dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#5E2196F3"
         android:text="@string/anxiety"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/allergies" />
 
     <Button
         android:id="@+id/asthma"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/black"
+        android:layout_width="175dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#7C27A5B0"
         android:text="@string/asthma"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/anxiety" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="198dp"
+        android:layout_height="33dp"
+        android:text="@string/shop_by_category"
+        android:textColor="#517A8E"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/heartDisease"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/symptomsEntry"
+        app:layout_constraintVertical_bias="0.629" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="269dp"
+        android:layout_height="234dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bonbon_phone_with_online_medicine_service_pills_and_stethoscope_1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

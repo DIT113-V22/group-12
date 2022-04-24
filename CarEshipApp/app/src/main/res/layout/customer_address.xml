@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="413dp"
+        android:layout_height="515dp"
+        android:layout_marginBottom="108dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/background_gardient" />
+
+    <EditText
+        android:id="@+id/postAddress"
+        android:layout_width="405dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="32dp"
+        android:background="#5EFFFFFF"
+        android:backgroundTint="#FDFDFD"
+        android:drawablePadding="20dp"
+        android:hint="Post address"
+
+        android:inputType="textWebEmailAddress|textPersonName"
+        android:padding="20dp"
+        android:textAlignment="center"
+        android:textColor="#1C486A"
+        android:textColorHighlight="#1C486A"
+        android:textColorHint="@color/white"
+        android:textColorLink="#1C486A"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/zipCode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.931" />
+
+    <EditText
+        android:id="@+id/zipCode"
+        android:layout_width="405dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="84dp"
+        android:background="#5EFFFFFF"
+        android:backgroundTint="#FDFDFD"
+        android:drawablePadding="20dp"
+        android:hint="Zip code"
+        android:inputType="textWebEmailAddress|textPersonName"
+        android:padding="20dp"
+        android:textAlignment="center"
+        android:textColor="#1C486A"
+        android:textColorHighlight="#1C486A"
+        android:textColorHint="@color/white"
+        android:textColorLink="#1C486A"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="116dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="358dp"
+        android:layout_height="271dp"
+        android:layout_marginTop="124dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gummy_location" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="377dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="28dp"
+        android:text="Please add your address"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView18" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button2"
+        android:layout_width="168dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="120dp"
+        android:background="@drawable/button"
+        android:text="Done"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#03A9F4"
+        android:textColorHint="#FFFFFF"
+        android:textColorLink="#03A9F4"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zipCode"
+        app:layout_constraintVertical_bias="0.694" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

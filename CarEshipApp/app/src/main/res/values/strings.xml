@@ -21,4 +21,6 @@
     <string name="complete_payment">Complete payment</string>
     <string name="Card_owner" />
     <string name="card_owner">Card owner</string>
+    <string name="hint_search">hint_Search</string>
+    <string name="shop_by_category">Shop by category:</string>
 </resources>
