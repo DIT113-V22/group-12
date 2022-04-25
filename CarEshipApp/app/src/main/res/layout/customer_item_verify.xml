@@ -138,19 +138,26 @@
         android:id="@+id/textview"
         android:layout_width="331dp"
         android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
         android:text="Product's overview"
         android:textColor="@color/sky_blue"
         android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="115dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView13"
         android:layout_width="191dp"
         android:layout_height="244dp"
-        app:srcCompat="@drawable/medicine"
-        tools:layout_editor_absoluteX="192dp"
-        tools:layout_editor_absoluteY="168dp" />
+        android:layout_marginTop="128dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.925"
+        app:srcCompat="@drawable/medicine" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

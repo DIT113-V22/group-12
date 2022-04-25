@@ -41,7 +41,7 @@ public class MainActivityLoginPage extends AppCompatActivity {
 
                 if(userCheck == true){
                     Toast.makeText(MainActivityLoginPage.this, "Login successful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), MainActivityCategoryList.class);
+                    Intent intent = new Intent(getApplicationContext(), CustomerItemVerify.class);
                     startActivity(intent);
                 }
                 else{

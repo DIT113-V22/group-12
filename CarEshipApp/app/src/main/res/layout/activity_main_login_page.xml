@@ -82,7 +82,6 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/button"
         android:text="@string/login"
-        android:textColor="#FFFFFF"
         app:backgroundTint="@color/bright_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -97,7 +96,6 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/button"
         android:text="@string/create_account"
-        android:textColor="#FFFFFF"
         app:backgroundTint="@color/bright_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,6 +122,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/login" />
+        app:srcCompat="@drawable/login_illustration" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

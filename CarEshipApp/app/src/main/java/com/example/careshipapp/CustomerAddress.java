@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class CustomerAddress extends AppCompatActivity {
 
     EditText postAddress, zipCode;
-    Button doneButton;
+    Button createAccountButton;
     DBHelperClass database;
 
     @Override
@@ -23,15 +23,9 @@ public class CustomerAddress extends AppCompatActivity {
 
         database = new DBHelperClass(this);
 
-       postAddress = (EditText) findViewById(R.id.postAddress);
-       zipCode = (EditText) findViewById(R.id.zipCode);
-       doneButton = (Button) findViewById(R.id.doneBtn);
-        doneButton.setOnClickListener(new View.OnClickListener() {
+        createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String address = postAddress.getText().toString();
-               Integer postCode = Integer.valueOf(zipCode.getText().toString());
-
 
             }
         });
