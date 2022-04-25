@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2196F3"
-    android:backgroundTint="#2B7AB8"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".heartdisease">
@@ -16,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:background="@android:drawable/editbox_background"
-        android:backgroundTint="#FAFAF8"
+        android:backgroundTint="#312196F3"
         android:drawableEnd="@android:drawable/arrow_down_float"
         android:drawablePadding="16dp"
         android:hint="Select your medicine"
@@ -27,14 +25,13 @@
         android:id="@+id/textView"
         android:layout_width="376dp"
         android:layout_height="311dp"
-        android:background="#3F51B5"
-        android:backgroundTint="#3F51B5"
+        android:background="@color/blue"
         android:fontFamily="sans-serif-black"
         android:lineSpacingExtra="24sp"
         android:text="Heart disease"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="34sp"
         android:textStyle="italic" />
 
@@ -42,27 +39,26 @@
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="331dp"
-        app:srcCompat="@drawable/danilo_alvesd_a7odg45prsm_unsplash" />
+        app:srcCompat="@null" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:background="#358F38"
-        android:backgroundTint="#358F38"
+        android:background="@drawable/button"
         android:text="Next"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="false"
         android:layout_alignParentBottom="true"
-        android:background="#358F38"
-        android:backgroundTint="#358F38"
+        android:background="@drawable/button"
         android:text="Back"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"

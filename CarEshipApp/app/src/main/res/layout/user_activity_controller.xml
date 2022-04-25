@@ -5,50 +5,77 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="429dp"
-        android:layout_height="800dp"
-        app:srcCompat="@drawable/pngwing_com__4_"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="5dp" />
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="329dp"
-        android:layout_height="91dp"
-        android:layout_marginBottom="628dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        android:layout_width="306dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-    <Button
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/customerButton"
-        android:layout_width="250dp"
-        android:layout_height="85dp"
-        android:layout_marginBottom="412dp"
-        android:backgroundTint="#2C3EA3"
+        android:layout_width="240dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/button"
+        android:backgroundTint="#4083D5"
         android:text="Customer"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintBottom_toTopOf="@+id/staffButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/staffButton"
-        android:layout_width="250dp"
-        android:layout_height="85dp"
-        android:layout_marginBottom="276dp"
-        android:backgroundTint="#2C3EA3"
+        android:layout_width="240dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/button"
+        android:backgroundTint="#4083D5"
         android:fadingEdge="horizontal"
         android:text="Staff "
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="297dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="4dp"
+        android:text="We ship with care"
+        android:textAlignment="center"
+        android:textColor="#EB6A9ECA"
+        android:textColorHighlight="#F6F4F4"
+        android:textColorLink="#FAFAFA"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="353dp"
+        android:layout_height="267dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/customerButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/say_hello_to_new_people" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

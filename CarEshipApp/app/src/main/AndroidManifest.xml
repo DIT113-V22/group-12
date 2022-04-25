@@ -29,6 +29,21 @@
             android:name=".StaffLoginPage"
             android:exported="true" />
         <activity
+            android:name=".heartdisease"
+            android:exported="true" />
+        <activity
+            android:name=".CommonCold"
+            android:exported="true" />
+        <activity
+            android:name=".asthma"
+            android:exported="true" />
+        <activity
+            android:name=".anxiety"
+            android:exported="true" />
+        <activity
+            android:name=".allergies"
+            android:exported="true" />
+        <activity
             android:name=".UserActivityController"
             android:exported="true" >
 
