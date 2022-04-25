@@ -22,7 +22,6 @@
         android:layout_height="55dp"
         android:layout_marginBottom="304dp"
         android:background="@drawable/custom_input"
-        android:backgroundTint="#0C278DFA"
         android:backgroundTintMode="src_in"
         android:ems="10"
         android:hint="account number"
@@ -35,9 +34,10 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="0.507" />
+        app:layout_constraintVertical_bias="0.877" />
 
     <EditText
         android:id="@+id/expiryDate"
@@ -47,7 +47,6 @@
         android:layout_marginTop="49dp"
         android:layout_marginBottom="220dp"
         android:background="@drawable/custom_input"
-        android:backgroundTint="#0C278DFA"
         android:ems="10"
         android:hint="@string/expiry_date"
         android:inputType="number"
@@ -55,10 +54,10 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.279"
+        app:layout_constraintHorizontal_bias="0.245"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accountNumber"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/CCV"
@@ -68,7 +67,6 @@
         android:layout_marginTop="49dp"
         android:layout_marginBottom="220dp"
         android:background="@drawable/custom_input"
-        android:backgroundTint="#0C278DFA"
         android:ems="10"
         android:hint="@string/cvv"
         android:inputType="number"
@@ -76,10 +74,10 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.734"
+        app:layout_constraintHorizontal_bias="0.754"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accountNumber"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/personName"
@@ -88,7 +86,6 @@
         android:layout_height="55dp"
         android:layout_marginBottom="132dp"
         android:background="@drawable/custom_input"
-        android:backgroundTint="#0C278DFA"
         android:ems="10"
         android:hint="@string/card_owner"
         android:inputType="textPersonName"
@@ -98,13 +95,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accountNumber"
-        app:layout_constraintVertical_bias="0.913" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/CompleteButton"
         android:layout_width="222dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/button"
         android:backgroundTint="#EB6A9ECA"
         android:text="@string/complete_payment"
@@ -120,7 +117,7 @@
         android:id="@+id/imageView9"
         android:layout_width="343dp"
         android:layout_height="163dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="164dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -135,14 +132,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView9"
         app:layout_constraintVertical_bias="0.534"
-        app:srcCompat="@drawable/visa_y_mastercard_mastercard_number_symbol_text_logo_transparent_png_372974" />
+        app:srcCompat="@drawable/visa_y_mastercard" />
 
     <ImageView
         android:id="@+id/imageView25"
         android:layout_width="292dp"
         android:layout_height="194dp"
-        app:srcCompat="@drawable/lovepik_com_450092819__illustration_design_of_online_payment"
-        tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:layout_marginBottom="536dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.865"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/payment" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

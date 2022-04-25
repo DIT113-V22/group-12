@@ -23,4 +23,6 @@
     <string name="card_owner">Card owner</string>
     <string name="hint_search">hint_Search</string>
     <string name="shop_by_category">Shop by category:</string>
+    <string name="select_your_medicine">Select your medicine</string>
+    <string name="post_address">Post address</string>
 </resources>

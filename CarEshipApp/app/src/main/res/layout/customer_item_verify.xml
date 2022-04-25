@@ -11,15 +11,15 @@
         android:id="@+id/textView6"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="252dp"
-        android:background="#EB6A9ECA"
-        android:backgroundTint="#666A9ECA"
-        android:hint="         0"
+        android:layout_marginBottom="240dp"
+        android:background="@drawable/custom_input"
+        android:hint="          0"
         android:textColor="#FDFDFD"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -34,11 +34,11 @@
 
     <Button
         android:id="@+id/plus"
-        android:layout_width="70dp"
-        android:layout_height="50dp"
+        android:layout_width="60dp"
+        android:layout_height="55dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginBottom="252dp"
+        android:layout_marginBottom="236dp"
         android:backgroundTint="#EB6A9ECA"
         android:onClick="increment"
         android:text="+"
@@ -53,11 +53,11 @@
 
     <Button
         android:id="@+id/minus"
-        android:layout_width="70dp"
-        android:layout_height="50dp"
+        android:layout_width="62dp"
+        android:layout_height="57dp"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:layout_marginBottom="252dp"
+        android:layout_marginBottom="236dp"
         android:backgroundTint="#EB6A9ECA"
         android:onClick="decrement"
         android:text="-"
@@ -72,7 +72,7 @@
         android:id="@+id/button"
         android:layout_width="228dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="52dp"
         android:background="@drawable/button"
         android:backgroundTint="#EB6A9ECA"
         android:text="Go to payment"
@@ -83,15 +83,14 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
-
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="353dp"
         android:layout_height="247dp"
-        android:layout_marginBottom="304dp"
+        android:layout_marginBottom="320dp"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,24 +99,24 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="166dp"
-        android:layout_height="168dp"
+        android:layout_width="163dp"
+        android:layout_height="193dp"
         android:layout_marginBottom="344dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintHorizontal_bias="0.116"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="118dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginBottom="108dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginBottom="104dp"
         android:background="@color/input"
         android:backgroundTint="@color/input"
         android:text="Total price:"
-        android:textColor="@color/Marine_blue"
+        android:textColor="@color/sky_blue"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -125,33 +124,33 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="80dp"
-        android:layout_height="43dp"
-        android:layout_marginEnd="112dp"
-        android:layout_marginBottom="108dp"
+        android:layout_width="82dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginBottom="104dp"
         android:hint="0 kr"
         android:textColor="#FDFDFD"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="192dp"
-        android:layout_height="234dp"
-        app:srcCompat="@drawable/medicine"
-        tools:layout_editor_absoluteX="190dp"
-        tools:layout_editor_absoluteY="180dp" />
-
     <TextView
         android:id="@+id/textview"
-        android:layout_width="244dp"
-        android:layout_height="48dp"
-        android:text="Item information"
-        android:textColor="@color/Marine_blue"
-        android:textSize="20sp"
+        android:layout_width="331dp"
+        android:layout_height="40dp"
+        android:text="Product's overview"
+        android:textColor="@color/sky_blue"
+        android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="130dp" />
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="115dp" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="191dp"
+        android:layout_height="244dp"
+        app:srcCompat="@drawable/medicine"
+        tools:layout_editor_absoluteX="192dp"
+        tools:layout_editor_absoluteY="168dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
