@@ -50,7 +50,10 @@ The first problem it will solve is it will minimize car crashes due to human tir
 - SmartCar Platform
 - SQLite
 
+## Our progress
 
+#### Sprint 1 demo
+https://www.youtube.com/watch?v=SWD4YXNsqEs
 
 ## Group members 
 
