@@ -7,10 +7,9 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="125dp"
-        android:layout_height="61dp"
+        android:layout_width="115dp"
+        android:layout_height="33dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.024"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
@@ -136,8 +135,8 @@
 
     <ImageView
         android:id="@+id/imageView25"
-        android:layout_width="292dp"
-        android:layout_height="194dp"
+        android:layout_width="281dp"
+        android:layout_height="179dp"
         android:layout_marginBottom="536dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
