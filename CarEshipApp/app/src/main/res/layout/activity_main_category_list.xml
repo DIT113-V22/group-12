@@ -7,23 +7,22 @@
     android:background="@null"
     tools:context=".MainActivityCategoryList">
 
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="117dp"
+        android:layout_width="115dp"
         android:layout_height="33dp"
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-
     <EditText
         android:id="@+id/symptomsEntry"
-        android:layout_width="368dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="248dp"
+        android:layout_width="407dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="252dp"
 
         android:background="#5E2196F3"
         android:backgroundTint="#5E2196F3"
@@ -35,7 +34,6 @@
         android:textColor="#5E498AA8"
         android:textColorHint="#5E498AA8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
