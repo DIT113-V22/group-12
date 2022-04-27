@@ -1,4 +1,4 @@
-package com.example.careshipapp.CarControl;
+package com.example.careshipapp.car_control;
 
 import android.os.Bundle;
 

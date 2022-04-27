@@ -1,4 +1,4 @@
-package com.example.careshipapp;
+package com.example.careshipapp.user_management;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +11,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.careshipapp.R;
+import com.example.careshipapp.customer_gui.UpdatePassword;
 
 
-    public class StaffLoginPage extends AppCompatActivity {
+public class StaffLoginPage extends AppCompatActivity {
 
         EditText staffEmail, staffPassword;
         Button loginBtn;
@@ -65,7 +67,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
         public void successfulLogin(){     //replace with orders list class when available
-            Intent intent = new Intent(this,MainActivityLoginPage.class);
+            Intent intent = new Intent(this, MainActivityLoginPage.class);
             startActivity(intent);
         }
     }
