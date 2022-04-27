@@ -4,9 +4,9 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.careshipapp.CarControl.JoystickMainActivity">
+    tools:context="com.example.careshipapp.car_control.JoystickMainActivity">
 
-    <com.example.careshipapp.CarControl.JoystickFunctionality
+    <com.example.careshipapp.car_control.JoystickFunctionality
         android:layout_width="match_parent"
         android:layout_height="210dp"
         tools:layout_editor_absoluteX="0dp"

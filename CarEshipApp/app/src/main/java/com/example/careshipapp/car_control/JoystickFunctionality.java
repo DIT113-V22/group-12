@@ -1,4 +1,4 @@
-package com.example.careshipapp.CarControl;
+package com.example.careshipapp.car_control;
 // code adapted from https://github.com/efficientisoceles/JoystickView/blob/master/app/src/main/java/com/ravensoft/daniel/joysticktest/JoystickView.java
 import android.content.Context;
 import android.graphics.Canvas;

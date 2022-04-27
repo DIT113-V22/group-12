@@ -1,4 +1,4 @@
-package com.example.careshipapp;
+package com.example.careshipapp.user_management;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.careshipapp.R;
 
 public class UserActivityController extends AppCompatActivity {
 
@@ -41,13 +43,13 @@ public class UserActivityController extends AppCompatActivity {
     }
 
       public void openCustomerLogin() {
-        Intent intent = new Intent(this,MainActivityLoginPage.class);
+        Intent intent = new Intent(this, MainActivityLoginPage.class);
         startActivity(intent);
       }
 
 
     public void openStaffLogin() {
-        Intent intent = new Intent(this,StaffLoginPage.class);
+        Intent intent = new Intent(this, StaffLoginPage.class);
         startActivity(intent);
     }
 

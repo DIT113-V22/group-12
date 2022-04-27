@@ -1,8 +1,10 @@
-package com.example.careshipapp;
+package com.example.careshipapp.customer_gui;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.careshipapp.R;
 
 public class CustomerPayment  extends AppCompatActivity {
 

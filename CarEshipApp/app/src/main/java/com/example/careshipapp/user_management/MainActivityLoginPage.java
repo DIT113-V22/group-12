@@ -1,4 +1,4 @@
-package com.example.careshipapp;
+package com.example.careshipapp.user_management;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.careshipapp.customer_gui.CustomerItemVerify;
+import com.example.careshipapp.R;
 import com.google.android.material.button.MaterialButton;
 
 public class MainActivityLoginPage extends AppCompatActivity {

@@ -1,10 +1,12 @@
-package com.example.careshipapp;
+package com.example.careshipapp.customer_gui;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.careshipapp.R;
 
 
 public class CustomerItemVerify extends AppCompatActivity {

@@ -11,45 +11,45 @@
         android:theme="@style/Theme.CarEshipApp" >
 
        <activity
-            android:name=".MainActivityCategoryList"
+            android:name=".customer_gui.MainActivityCategoryList"
             android:exported="false" />
         <activity
-            android:name=".MainActivityCreateAccount"
+            android:name=".user_management.MainActivityCreateAccount"
             android:exported="false" />
         <activity
-            android:name=".MainActivityLoginPage"
+            android:name=".user_management.MainActivityLoginPage"
             android:exported="true" />
         <activity
-            android:name=".CustomerItemVerify"
+            android:name=".customer_gui.CustomerItemVerify"
             android:exported="true" />
         <activity
-            android:name=".CustomerPayment"
+            android:name=".customer_gui.CustomerPayment"
             android:exported="true" />
         <activity
-            android:name=".StaffLoginPage"
+            android:name=".user_management.StaffLoginPage"
             android:exported="true" />
         <activity
-            android:name=".CarControl.JoystickMainActivity"
+            android:name=".car_control.JoystickMainActivity"
             android:exported="true" />
-        <activity android:name=".TrackOrder"
-            android:exported="true" />
-        <activity
-            android:name=".heartdisease"
+        <activity android:name=".customer_gui.TrackOrder"
             android:exported="true" />
         <activity
-            android:name=".CommonCold"
+            android:name=".customer_gui.heartdisease"
             android:exported="true" />
         <activity
-            android:name=".asthma"
+            android:name=".customer_gui.CommonCold"
             android:exported="true" />
         <activity
-            android:name=".anxiety"
+            android:name=".customer_gui.asthma"
             android:exported="true" />
         <activity
-            android:name=".allergies"
+            android:name=".customer_gui.anxiety"
             android:exported="true" />
         <activity
-            android:name=".UserActivityController"
+            android:name=".customer_gui.allergies"
+            android:exported="true" />
+        <activity
+            android:name=".user_management.UserActivityController"
             android:exported="true" >
 
             <intent-filter>
