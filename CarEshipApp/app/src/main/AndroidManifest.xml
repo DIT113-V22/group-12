@@ -29,6 +29,11 @@
             android:name=".StaffLoginPage"
             android:exported="true" />
         <activity
+            android:name=".CarControl.JoystickMainActivity"
+            android:exported="true" />
+        <activity android:name=".TrackOrder"
+            android:exported="true" />
+        <activity
             android:name=".heartdisease"
             android:exported="true" />
         <activity
