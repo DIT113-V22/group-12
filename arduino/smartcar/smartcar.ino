@@ -1,5 +1,3 @@
-
-
 #include <MQTT.h>
 #include <WiFi.h>
 #ifdef __SMCE__
