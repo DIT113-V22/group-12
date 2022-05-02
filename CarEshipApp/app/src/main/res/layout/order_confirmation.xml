@@ -34,7 +34,7 @@
         app:layout_constraintVertical_bias="0.704" />
 
     <TextView
-        android:id="@+id/date"
+        android:id="@+id/dateText"
         android:layout_width="151dp"
         android:layout_height="52dp"
         android:textColor="#000000"
