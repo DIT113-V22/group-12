@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 
@@ -15,11 +14,9 @@ public class DBHelperClass extends SQLiteOpenHelper {
     private static final String TABLEUSERS = "Users";
     private static final String USERNAME = "username";
     private static final String PASSWORD = "password";
-    private static final String ADDRESS = "post address";
-    private static final String ZIPCODE = "zip code";
     private static final String CREATEUSERSTABLE = "CREATE TABLE " + TABLEUSERS + " ("
             + USERNAME + " TEXT PRIMARY KEY AUTOINCREMENT, "
-            + PASSWORD + " TEXT," + ADDRESS + "TEXT, " + ZIPCODE + "TEXT)";
+            + PASSWORD + " TEXT)";
 
 
     public DBHelperClass(Context context) {
@@ -40,21 +37,19 @@ public class DBHelperClass extends SQLiteOpenHelper {
 
     }
 
-    public void insertData(String username, String password, String postAddress, String zipCode){
+    public void insertData(String username, String password){
         //Method for inserting the data into users table.
         SQLiteDatabase usersDB = this.getWritableDatabase();
         ContentValues values = new ContentValues();//Storing values.
 
         values.put(USERNAME, username);//Inserting username into values.
         values.put(PASSWORD, password);//Inserting password into values.
-        values.put(ADDRESS, String.valueOf(postAddress));//Inserting address into values.
-        values.put(ZIPCODE, String.valueOf(zipCode));//Inserting zipcode into values.
+
         usersDB.insert(TABLEUSERS, null, values);//Inserting the values into the table users.
+
         usersDB.close();
 
     }
-
-
 
     public Boolean usernameExistsCheck(String username){
         //Method that checks if user exists in the database.
@@ -71,15 +66,6 @@ public class DBHelperClass extends SQLiteOpenHelper {
         Cursor cursor = usersDB.rawQuery("SELECT * FROM Users WHERE username = ? and password = ?", new String[] {username, password});
 
         return cursor.getCount() > 0;
-
-    }
-
-    public void updatePassword(String email, String password){
-        SQLiteDatabase database = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(PASSWORD, password);
-        database.update(TABLEUSERS, values, USERNAME+" = ?", new String[]{ email });
-        database.close();
 
     }
 }

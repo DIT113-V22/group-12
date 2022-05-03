@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
@@ -16,7 +15,6 @@ public class MainActivityLoginPage extends AppCompatActivity {
     EditText username, password;
     MaterialButton loginButton, createAccountButton2;
     DBHelperClass database;
-     TextView forgot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +25,7 @@ public class MainActivityLoginPage extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password2);
         loginButton = (MaterialButton) findViewById(R.id.LoginButton);
         createAccountButton2 = (MaterialButton) findViewById(R.id.CreateAccountButton2);
-
-
         database = new DBHelperClass(this);
-
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,15 +57,5 @@ public class MainActivityLoginPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-        forgot = (TextView) findViewById(R.id.ForgetPassword);
-        forgot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), UpdatePassword.class);
-                startActivity(intent);
-            }
-        });
-        }
     }
+}
