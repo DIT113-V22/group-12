@@ -23,7 +23,7 @@
         android:id="@+id/signIn"
         android:layout_width="224dp"
         android:layout_height="56dp"
-        android:layout_marginTop="304dp"
+        android:layout_marginTop="288dp"
         android:backgroundTint="@color/bright_blue"
         android:gravity="center"
         android:text="Log in "
@@ -59,7 +59,7 @@
         android:id="@+id/password2"
         android:layout_width="406dp"
         android:layout_height="67dp"
-        android:layout_marginTop="464dp"
+        android:layout_marginTop="448dp"
         android:background="#414083D5"
         android:drawableStart="@drawable/ic_baseline_vpn_key_24"
         android:drawableEnd="@drawable/ic_baseline_visibility_24"
@@ -93,11 +93,12 @@
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/button"
         android:text="@string/create_account"
         app:backgroundTint="@color/bright_blue"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginButton" />
 
@@ -106,6 +107,7 @@
         android:layout_width="136dp"
         android:layout_height="30dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
         android:layout_marginBottom="24dp"
         android:text="@string/forgot_password"
         android:textColor="@color/bright_blue"
@@ -115,13 +117,13 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CreateAccountButton2"
-        app:layout_constraintVertical_bias="0.944" />
+        app:layout_constraintVertical_bias="0.615" />
 
     <ImageView
         android:id="@+id/imageView17"
-        android:layout_width="330dp"
-        android:layout_height="270dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="317dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
@@ -54,6 +55,15 @@ public class MainActivityLoginPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MainActivityCreateAccount.class);
+                startActivity(intent);
+            }
+        });
+
+        TextView forgotPassword = (TextView) this.findViewById(R.id.ForgetPassword);
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), UpdatePassword.class);
                 startActivity(intent);
             }
         });
