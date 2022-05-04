@@ -14,9 +14,14 @@ public class DBHelperClass extends SQLiteOpenHelper {
     private static final String TABLEUSERS = "Users";
     private static final String USERNAME = "username";
     private static final String PASSWORD = "password";
+
+    private static final String ADDRESS = "post address";
+    private static final String ZIPCODE = "zip code";
     private static final String CREATEUSERSTABLE = "CREATE TABLE " + TABLEUSERS + " ("
             + USERNAME + " TEXT PRIMARY KEY AUTOINCREMENT, "
-            + PASSWORD + " TEXT)";
+            + PASSWORD + " TEXT," + ADDRESS + "TEXT, " + ZIPCODE + "TEXT)";
+
+
 
 
     public DBHelperClass(Context context) {
@@ -37,13 +42,21 @@ public class DBHelperClass extends SQLiteOpenHelper {
 
     }
 
-    public void insertData(String username, String password){
+
+    public void insertData(String username, String password,String postAddress, String zipCode){
+
+
         //Method for inserting the data into users table.
         SQLiteDatabase usersDB = this.getWritableDatabase();
         ContentValues values = new ContentValues();//Storing values.
 
         values.put(USERNAME, username);//Inserting username into values.
         values.put(PASSWORD, password);//Inserting password into values.
+
+        values.put(ADDRESS, String.valueOf(postAddress));//Inserting address into values.
+        values.put(ZIPCODE, String.valueOf(zipCode));//Inserting zipcode into values.
+
+
 
         usersDB.insert(TABLEUSERS, null, values);//Inserting the values into the table users.
 
@@ -68,4 +81,15 @@ public class DBHelperClass extends SQLiteOpenHelper {
         return cursor.getCount() > 0;
 
     }
+ 
+    public void updatePassword(String username, String password){
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(PASSWORD, password);
+        database.update(TABLEUSERS, values, USERNAME+" = ?", new String[]{ username });
+        database.close();
+
+    }
+
+
 }
