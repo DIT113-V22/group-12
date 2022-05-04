@@ -9,8 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.careshipapp.customer_gui.CustomerItemVerify;
 import com.example.careshipapp.R;
+import com.example.careshipapp.customer_gui.MainActivityCategoryList;
 import com.google.android.material.button.MaterialButton;
 
 public class MainActivityLoginPage extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.example.careshipapp;
+package com.example.careshipapp.user_management;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.careshipapp.R;
+import com.example.careshipapp.user_management.DBHelperClass;
+import com.example.careshipapp.user_management.UserActivityController;
 
 public class UpdatePassword extends AppCompatActivity {
 
@@ -55,7 +59,7 @@ public class UpdatePassword extends AppCompatActivity {
 
         }else {
             database.updatePassword(email, newPass);
-            Intent intent = new Intent(this,UserActivityController.class);
+            Intent intent = new Intent(this, UserActivityController.class);
             startActivity(intent);
             Toast.makeText(this," Password has been successfully updated.",Toast.LENGTH_SHORT).show();
         }
