@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.careshipapp.R;
-import com.example.careshipapp.customer_gui.UpdatePassword;
 
 
 public class StaffLoginPage extends AppCompatActivity {
@@ -81,5 +80,5 @@ public class StaffLoginPage extends AppCompatActivity {
 
     }
 
-    }
+
 

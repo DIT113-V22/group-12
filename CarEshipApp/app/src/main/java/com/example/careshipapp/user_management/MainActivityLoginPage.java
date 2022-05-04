@@ -54,8 +54,6 @@ public class MainActivityLoginPage extends AppCompatActivity {
 
                     Intent intent = new Intent(getApplicationContext(), MainActivityCategoryList.class);
 
-                    Intent intent = new Intent(getApplicationContext(), CustomerItemVerify.class);
-
                     startActivity(intent);
                 }
                 else{

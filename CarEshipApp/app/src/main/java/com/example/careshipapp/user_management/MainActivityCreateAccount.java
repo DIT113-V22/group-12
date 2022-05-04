@@ -19,7 +19,6 @@ public class MainActivityCreateAccount extends AppCompatActivity {
 
     EditText username, createPassword, passwordReentry, postAddress, zipCode;
 
-
     MaterialButton createAccountButton;
     DBHelperClass database;
 
