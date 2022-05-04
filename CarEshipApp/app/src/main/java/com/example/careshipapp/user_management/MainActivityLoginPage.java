@@ -6,11 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.careshipapp.R;
 import com.example.careshipapp.customer_gui.MainActivityCategoryList;
+
+import android.widget.Toast;
+
+import com.example.careshipapp.customer_gui.CustomerItemVerify;
+import com.example.careshipapp.R;
+
 import com.google.android.material.button.MaterialButton;
 
 public class MainActivityLoginPage extends AppCompatActivity {
@@ -44,7 +51,11 @@ public class MainActivityLoginPage extends AppCompatActivity {
 
                 if(userCheck == true){
                     Toast.makeText(MainActivityLoginPage.this, "Login successful", Toast.LENGTH_SHORT).show();
+
                     Intent intent = new Intent(getApplicationContext(), MainActivityCategoryList.class);
+
+                    Intent intent = new Intent(getApplicationContext(), CustomerItemVerify.class);
+
                     startActivity(intent);
                 }
                 else{
@@ -61,6 +72,7 @@ public class MainActivityLoginPage extends AppCompatActivity {
             }
         });
 
+
         TextView forgotPassword = (TextView) this.findViewById(R.id.ForgetPassword);
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,5 +81,6 @@ public class MainActivityLoginPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

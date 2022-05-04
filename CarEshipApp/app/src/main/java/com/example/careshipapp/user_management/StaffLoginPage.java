@@ -44,7 +44,11 @@ public class StaffLoginPage extends AppCompatActivity {
                         Toast.makeText(StaffLoginPage.this,"Login successful.",Toast.LENGTH_SHORT).show();
                         successfulLogin();
 
+
                     } else if(email.isEmpty() && password.isEmpty()){
+
+                    } if(email.isEmpty() && password.isEmpty()){
+
                         Toast.makeText(StaffLoginPage.this,"Add both email and password",Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(StaffLoginPage.this,"Invalid login attempt.",Toast.LENGTH_SHORT).show();
@@ -56,6 +60,9 @@ public class StaffLoginPage extends AppCompatActivity {
             forgetPass = (TextView) findViewById(R.id.forgetPassword);
 
             forgetPass.setOnClickListener(new View.OnClickListener() {
+
+
+              
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getApplicationContext(), UpdatePassword.class);
@@ -71,4 +78,8 @@ public class StaffLoginPage extends AppCompatActivity {
         }
 
 
+
     }
+
+    }
+
