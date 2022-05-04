@@ -1,4 +1,4 @@
-package com.example.careshipapp;
+package com.example.careshipapp.customer_gui;
 
 import android.os.Bundle;
 

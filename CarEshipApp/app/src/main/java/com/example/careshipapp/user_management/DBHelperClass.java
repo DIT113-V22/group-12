@@ -1,4 +1,4 @@
-package com.example.careshipapp;
+package com.example.careshipapp.user_management;
 
 import android.content.ContentValues;
 import android.content.Context;

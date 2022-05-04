@@ -1,4 +1,4 @@
-package com.example.careshipapp;
+package com.example.careshipapp.customer_gui;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -8,21 +8,23 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.careshipapp.R;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class heartdisease extends AppCompatActivity {
+public class allergies extends AppCompatActivity {
 
     TextView  medicineOrder;
     boolean[] selectedMedicine;
     ArrayList<Integer> medicineList = new ArrayList<>();
-    String[] medicineArray = {"Aspirin 120 mg","Cozaar 100mg","Heparin 120 mg"};
+    String[] medicineArray = {"Desloratadine 60 mg","Fexofenadine 120 mg","Loratadine 60 mg"};
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.anxiety);
+        setContentView(R.layout.allergies);
 
         medicineOrder = findViewById(R.id.medicine_order);
 
@@ -31,7 +33,7 @@ public class heartdisease extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(
-                        heartdisease.this
+                        allergies.this
                 );
 
 
@@ -96,3 +98,4 @@ public class heartdisease extends AppCompatActivity {
         });
     }
 }
+
