@@ -19,7 +19,6 @@ public class MainActivityCreateAccount extends AppCompatActivity {
 
     EditText username, createPassword, passwordReentry, postAddress, zipCode;
 
-    EditText username, createPassword, passwordReentry;
 
     MaterialButton createAccountButton;
     DBHelperClass database;
@@ -82,21 +81,6 @@ public class MainActivityCreateAccount extends AppCompatActivity {
                 }
 
                 {
-                    Toast.makeText(MainActivityCreateAccount.this, "The re-entered password is incorrect.", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-
-                        database.insertData(email, passwrd);
-                        Toast.makeText(MainActivityCreateAccount.this, "Account created successfully.", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(MainActivityCreateAccount.this, MainActivityLoginPage.class);
-                        startActivity(intent);
-                    }
-                    else{
-                        Toast.makeText(MainActivityCreateAccount.this, "Username or/and password are taken, please try again.", Toast.LENGTH_SHORT).show();
-                    }
-                }
-                else{
                     Toast.makeText(MainActivityCreateAccount.this, "The re-entered password is incorrect.", Toast.LENGTH_SHORT).show();
                 }
             }

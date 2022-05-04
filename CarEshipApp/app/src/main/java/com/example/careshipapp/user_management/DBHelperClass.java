@@ -21,9 +21,6 @@ public class DBHelperClass extends SQLiteOpenHelper {
             + USERNAME + " TEXT PRIMARY KEY AUTOINCREMENT, "
             + PASSWORD + " TEXT," + ADDRESS + "TEXT, " + ZIPCODE + "TEXT)";
 
-    private static final String CREATEUSERSTABLE = "CREATE TABLE " + TABLEUSERS + " ("
-            + USERNAME + " TEXT PRIMARY KEY AUTOINCREMENT, "
-            + PASSWORD + " TEXT)";
 
 
 
@@ -48,7 +45,6 @@ public class DBHelperClass extends SQLiteOpenHelper {
 
     public void insertData(String username, String password,String postAddress, String zipCode){
 
-    public void insertData(String username, String password){
 
         //Method for inserting the data into users table.
         SQLiteDatabase usersDB = this.getWritableDatabase();
@@ -86,11 +82,11 @@ public class DBHelperClass extends SQLiteOpenHelper {
 
     }
  
-    public void updatePassword(String email, String password){
+    public void updatePassword(String username, String password){
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(PASSWORD, password);
-        database.update(TABLEUSERS, values, USERNAME+" = ?", new String[]{ email });
+        database.update(TABLEUSERS, values, USERNAME+" = ?", new String[]{ username });
         database.close();
 
     }
