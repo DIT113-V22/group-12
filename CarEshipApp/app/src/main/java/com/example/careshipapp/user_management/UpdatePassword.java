@@ -24,6 +24,7 @@ public class UpdatePassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.update_password);
+
         newPassword = (EditText) findViewById(R.id.newPass);
         retypeNewPassword= (EditText) findViewById(R.id. retypeNewPass);
         emailAddress = (EditText) findViewById(R.id.EmailAddress);
@@ -35,6 +36,7 @@ public class UpdatePassword extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+
                 validatePass();
             }
         }));

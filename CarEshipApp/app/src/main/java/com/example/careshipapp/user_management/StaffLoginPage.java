@@ -64,7 +64,7 @@ public class StaffLoginPage extends AppCompatActivity {
               
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(getApplicationContext(), UpdatePassword.class);
+                    Intent intent = new Intent(getApplicationContext(), ForgotPasswordAuth.class);
                     startActivity(intent);
                 }
             });
