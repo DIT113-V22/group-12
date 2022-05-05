@@ -29,4 +29,5 @@
     <string name="retype_new_password">Retype new password</string>
     <string name="zip_code">Zip code</string>
     <string name="email">Type your email</string>
+    <string name="send_verification_link">Send verification link</string>
 </resources>

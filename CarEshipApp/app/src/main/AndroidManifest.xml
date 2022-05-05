@@ -33,6 +33,12 @@
             android:name=".user_management.StaffLoginPage"
             android:exported="true" />
         <activity
+            android:name=".user_management.ForgotPasswordAuth"
+            android:exported="true" />
+        <activity
+            android:name=".user_management.UpdatePassword"
+            android:exported="true" />
+        <activity
             android:name=".car_control.JoystickMainActivity"
             android:exported="true" />
         <activity android:name=".customer_gui.OrderConfirmation"

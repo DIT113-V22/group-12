@@ -23,6 +23,7 @@
         android:layout_height="56dp"
         android:layout_marginTop="224dp"
         android:gravity="center"
+        android:text="Create Account"
         android:textColor="#736698"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -103,7 +104,7 @@
 
     <EditText
         android:id="@+id/postAddress"
-        android:layout_width="251dp"
+        android:layout_width="248dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:background="@color/blue"
@@ -126,7 +127,7 @@
 
     <EditText
         android:id="@+id/zipCode"
-        android:layout_width="150dp"
+        android:layout_width="140dp"
         android:layout_height="60dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"

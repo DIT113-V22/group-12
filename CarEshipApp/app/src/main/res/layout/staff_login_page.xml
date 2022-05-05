@@ -59,7 +59,7 @@
         android:id="@+id/staffPassword"
         android:layout_width="406dp"
         android:layout_height="67dp"
-        android:layout_marginTop="468dp"
+        android:layout_marginTop="464dp"
         android:background="#30ffffff"
         android:backgroundTint="#4083D5"
         android:drawableStart="@drawable/ic_baseline_vpn_key_24"
@@ -87,10 +87,9 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/staffPassword"
-        app:layout_constraintVertical_bias="0.119" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/forgetPassword"
