@@ -35,6 +35,8 @@
         <activity
             android:name=".car_control.JoystickMainActivity"
             android:exported="true" />
+        <activity android:name=".customer_gui.OrderConfirmation"
+            android:exported="true" />
         <activity android:name=".customer_gui.TrackOrder"
             android:exported="true" />
         <activity
