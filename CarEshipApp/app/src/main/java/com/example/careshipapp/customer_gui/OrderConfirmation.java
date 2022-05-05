@@ -31,6 +31,15 @@ public class OrderConfirmation extends AppCompatActivity {
         date = dateFormat.format(calendar.getTime());
         dateText.setText(date);
 
+        Button btnTrackOrder = (Button) findViewById(R.id.buttonTrackOrder);
+
+        btnTrackOrder.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(OrderConfirmation.this, TrackOrder.class));
+            }
+        });
+
     }
 
     }
