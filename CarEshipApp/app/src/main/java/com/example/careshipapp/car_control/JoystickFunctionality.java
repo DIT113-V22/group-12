@@ -1,3 +1,5 @@
+
+
 package com.example.careshipapp.car_control;
 // code adapted from https://github.com/efficientisoceles/JoystickView/blob/master/app/src/main/java/com/ravensoft/daniel/joysticktest/JoystickView.java
 import android.content.Context;
@@ -20,21 +22,23 @@ public class JoystickFunctionality extends SurfaceView implements SurfaceHolder.
     private float cenY;
     private float lowerCircleRadius;
     private float upperCircleRadius;
+    private JoystickListener joystickCallback;
 
     private void dimensions(){
         cenX = (float) getWidth() / 2;
         cenY = (float) getHeight() / 2;
         lowerCircleRadius =  (float) Math.min(getWidth(), getHeight()) / 3; // size of the lower circle of the joystick(the higher the number, the smaller the size of the circle.
         upperCircleRadius = (float) Math.min(getWidth(), getHeight()) / 7; // the same as above, but the size of the upper circle.
-        
+
     }
 
 
     public JoystickFunctionality(Context context) {
-        
+
         super(context);
         getHolder().addCallback(this);
         setOnTouchListener(this);
+        instanceOf(context);
     }
 
 
@@ -43,13 +47,17 @@ public class JoystickFunctionality extends SurfaceView implements SurfaceHolder.
         super(context, attributes);
         getHolder().addCallback(this);
         setOnTouchListener(this);
+        instanceOf(context);
     }
 
     public JoystickFunctionality(Context context, AttributeSet attributes, int style) {
         super(context, attributes, style);
         getHolder().addCallback(this);
         setOnTouchListener(this);
+        instanceOf(context);
     }
+
+
 
     @Override
     public void surfaceCreated(@NonNull SurfaceHolder surfaceHolder) {
@@ -93,19 +101,33 @@ public class JoystickFunctionality extends SurfaceView implements SurfaceHolder.
             if(motionEvent.getAction() != MotionEvent.ACTION_UP) {
 
                 float displacement = (float) Math.sqrt((Math.pow(motionEvent.getX() - cenX, 2)) + Math.pow(motionEvent.getY() - cenY, 2));// change of the object's movement relative to its initial position.
-                if (displacement < lowerCircleRadius) { //if the displacement value is lower than the lower circle's value, then
+
+                if (displacement < lowerCircleRadius) { //if the displacement value is lower than the lower circle's value, then the joystick moves within the lower circle.
                     joystickDesign(motionEvent.getX(), motionEvent.getY());
+                    joystickCallback.onJoystickMoved((motionEvent.getX() - cenX)/lowerCircleRadius, (motionEvent.getY() - cenY)/lowerCircleRadius); //get X and Y coordinates in terms of -1 to 1 values.
                 } else {// constrain the position of the joystick when it is out of the lower circle. It would stop moving when the joystick's(upper circle) center will level with the lower circle's boundary.
                     float ratio = lowerCircleRadius / displacement;
-                    float constrainedX = cenX + (motionEvent.getX() - cenX) * ratio;// formula for constraining the upper circle within the lower circle along the X axis.
-                    float constrainedY = cenY + (motionEvent.getY() - cenY) * ratio;// formula for constraining the upper circle within the lower circle along the Y axis.
-                    joystickDesign(constrainedX, constrainedY);
+                    float limitX = cenX + (motionEvent.getX() - cenX) * ratio;// formula for constraining the upper circle within the lower circle along the X axis.
+                    float limitY = cenY + (motionEvent.getY() - cenY) * ratio;// formula for constraining the upper circle within the lower circle along the Y axis.
+                    joystickDesign(limitX, limitY);
+                    joystickCallback.onJoystickMoved((limitX-cenX)/lowerCircleRadius, (limitY-cenY)/lowerCircleRadius);
                 }
             }
             else{
-               joystickDesign(cenX, cenY);
+                joystickDesign(cenX, cenY);
+                joystickCallback.onJoystickMoved(0,0);
             }
         }
         return true;
     }
+
+    public interface JoystickListener {
+        void onJoystickMoved(float xPercent, float yPercent);
+    }
+
+    public void instanceOf(Context context){
+        if(context instanceof JoystickListener)
+            joystickCallback = (JoystickListener) context;
+    }
 }
+
