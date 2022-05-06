@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.careshipapp">
-    <uses-permission android:name="android.permission.WAKE_LOCK" tools:node="replace" />
+
+    <uses-permission
+        android:name="android.permission.WAKE_LOCK"
+        tools:node="replace" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -12,9 +15,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CarEshipApp" >
-
-       <activity
+        android:theme="@style/Theme.CarEshipApp">
+        <activity
+            android:name=".customer_gui.ListOrders"
+            android:exported="false" />
+        <activity
             android:name=".customer_gui.MainActivityCategoryList"
             android:exported="false" />
         <activity
@@ -41,9 +46,11 @@
         <activity
             android:name=".car_control.JoystickMainActivity"
             android:exported="true" />
-        <activity android:name=".customer_gui.OrderConfirmation"
+        <activity
+            android:name=".customer_gui.OrderConfirmation"
             android:exported="true" />
-        <activity android:name=".customer_gui.TrackOrder"
+        <activity
+            android:name=".customer_gui.TrackOrder"
             android:exported="true" />
         <activity
             android:name=".customer_gui.heartdisease"
@@ -62,8 +69,7 @@
             android:exported="true" />
         <activity
             android:name=".user_management.UserActivityController"
-            android:exported="true" >
-
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -71,9 +77,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name="org.eclipse.paho.android.service.MqttService"
-            />
-
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
     </application>
 
 </manifest>
