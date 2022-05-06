@@ -48,7 +48,7 @@ The first problem it will solve is it will minimize car crashes due to human tir
 - Android Studio
 - Arduino IDE
 - SmartCar Platform
-- SQLite
+- FireBase
 
 ## Our progress
 
