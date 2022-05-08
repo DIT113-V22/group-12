@@ -30,4 +30,16 @@
     <string name="zip_code">Zip code</string>
     <string name="email">Type your email</string>
     <string name="send_verification_link">Send verification link</string>
+    <string name="medicine_care_ship">carEship</string>
+    <string name="search_medicine"> Search for medicine,other products</string>
+    <string name="category_list">products by category</string>
+    <string name="popular_products">Popular products</string>
+    <string name="medicines">Medicines</string>
+    <string name="multi_vitamins">Multi vitamins</string>
+    <string name="pills_90">90 pills</string>
+    <string name="final_price_217">$217</string>
+    <string name="test">Test</string>
+    <string name="add_to_basket">Add to basket</string>
+    <string name="info_detail">Brand name:Mega food</string>
+    <string name="product_detail">product detail</string>
 </resources>
