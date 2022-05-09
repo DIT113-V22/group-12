@@ -24,7 +24,11 @@ jobs:
     - name:  Create google-service.json
       env:
          GOOGLE_SERVICE_JSON:  ${{ secrets.GOOGLE_SERVICE }}
-      run:  echo $GOOGLE_SERVICE_JSON >  app/google-service.json
+      run: |
+        echo $GOOGLE_SERVICE_JSON >  app/google-service.json
+        ls -lah app/google-service.json
+        sudo apt-get install tree
+        tree
       
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
