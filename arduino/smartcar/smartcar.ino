@@ -1,6 +1,9 @@
+#include <vector>
+
 #include <MQTT.h>
 #include <WiFi.h>
 #ifdef __SMCE__
+#include <OV767X.h>
 #endif
 
 #include <Smartcar.h>
@@ -31,6 +34,8 @@ const auto mqttBrokerUrl = "192.168.0.10";
 const auto maxDistance = 100;
 SR04 frontSensor(arduinoRuntime, triggerPin, echoPin, maxDistance);
 
+std::vector<char> frameBuffer;
+
 const auto THROTTLE_TOPIC = "/smartcar/carcontrol/throttle";
 const auto STEERING_TOPIC = "/smartcar/carcontrol/steering";
 const auto ULTRA_SOUND_TOPIC = "/smartcar/ultrasound/front";
@@ -44,7 +49,11 @@ void stopBeforeObstacle(){
 }
 
 void setup() {
-    Serial.begin(9600);
+  Serial.begin(9600);
+#ifdef __SMCE__
+  Camera.begin(QVGA, RGB888, 15);
+  frameBuffer.resize(Camera.width() * Camera.height() * Camera.bytesPerPixel());
+#endif
 
     WiFi.begin(ssid, pass);
     mqtt.begin(mqttBrokerUrl, 1883, net);
@@ -74,6 +83,7 @@ void setup() {
     mqtt.onMessage([](String topic, String message) {
         if (topic == THROTTLE_TOPIC) {
             car.setSpeed(message.toInt());
+
         } else if (topic == STEERING_TOPIC) {
             car.setAngle(message.toInt());
         } else {
@@ -87,19 +97,25 @@ void loop() {
         mqtt.loop();
         const auto currentTime = millis();
 #ifdef __SMCE__
-
-    static auto previousTransmission = 0UL;
-    if (currentTime - previousTransmission >= oneSecond) {
-      previousTransmission = currentTime;
-      const auto distance = String(frontSensor.getDistance());
-      mqtt.publish(ULTRA_SOUND_TOPIC, distance);
-      stopBeforeObstacle();
+    static auto previousFrame = 0UL;
+    if (currentTime - previousFrame >= 65) {
+      previousFrame = currentTime;
+      Camera.readFrame(frameBuffer.data());
+      mqtt.publish("/smartcar/camera", frameBuffer.data(), frameBuffer.size(),
+                   false, 0);
     }
 #endif
+
+        static auto previousTransmission = 0UL;
+        if (currentTime - previousTransmission >= oneSecond) {
+            previousTransmission = currentTime;
+            const auto distance = String(frontSensor.getDistance());
+            mqtt.publish(ULTRA_SOUND_TOPIC, distance);
+            stopBeforeObstacle();
+        }
     }
 #ifdef __SMCE__
     // Avoid over-using the CPU if we are running in the emulator
   delay(1);
 #endif
 }
-
