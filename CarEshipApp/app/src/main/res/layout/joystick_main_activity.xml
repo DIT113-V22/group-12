@@ -12,7 +12,16 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/blue" />
+        android:background="@color/blue"
+        />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="610dp"
+        android:layout_weight="0.3"
+        android:contentDescription="@string/cameraView"
+        tools:ignore="MissingConstraints" />
 
 
 
