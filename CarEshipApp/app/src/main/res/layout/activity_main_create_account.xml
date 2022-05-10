@@ -109,7 +109,6 @@
         android:layout_marginTop="16dp"
         android:background="@color/blue"
         android:backgroundTint="@color/sky_blue"
-        android:drawableStart="@android:drawable/ic_menu_mylocation"
         android:drawablePadding="20dp"
         android:hint="@string/post_address"
         android:inputType="textPostalAddress"
@@ -158,6 +157,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sign_up_form" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+        android:layout_width="135dp"
+        android:layout_height="21dp"
+        android:layout_marginBottom="8dp"
+        android:progressTint="@color/Purple"
+        app:layout_constraintBottom_toTopOf="@+id/CreateAccountButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
