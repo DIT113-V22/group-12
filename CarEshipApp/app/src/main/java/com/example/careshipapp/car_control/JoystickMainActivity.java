@@ -1,7 +1,10 @@
 package com.example.careshipapp.car_control;
 
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -17,18 +20,23 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 public class JoystickMainActivity extends AppCompatActivity implements JoystickFunctionality.JoystickListener {
     private static final String TAG = "SmartcarMqttController";
-    private static final String EXTERNAL_BROKER = "broker.hivemq.com";
     private static final String LOCALHOST = "10.0.2.2";
     private static final String MQTT_SERVER = "tcp://" + LOCALHOST + ":1883";
     private static final String THROTTLE_TOPIC = "/smartcar/carcontrol/throttle";
     private static final String STEERING_TOPIC = "/smartcar/carcontrol/steering";
+    private static final String CAMERA_TOPIC = "/smartcar/camera";
+    private static final String ULTRASOUND_TOPIC = "/smartcar/ultrasound/front";
     private static final int MOVEMENT = 50;
     private static final int TURN = 70;
+    private static final int STRAIGHT_ANGLE = 0;
     private static final int STOP_CAR = 0;
     private static final int QOS = 1;
+    private static final int IMAGE_WIDTH = 320;
+    private static final int IMAGE_HEIGHT = 240;
 
     private MqttClient mqttClient;
     private boolean isConnected = false;
+    private ImageView camera;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,8 +44,10 @@ public class JoystickMainActivity extends AppCompatActivity implements JoystickF
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.joystick_main_activity);
-
         mqttClient = new MqttClient(getApplicationContext(), MQTT_SERVER, TAG);
+        camera = findViewById(R.id.imageView);
+
+
         connectToMqttBroker();
 
     }
@@ -45,13 +55,19 @@ public class JoystickMainActivity extends AppCompatActivity implements JoystickF
     @Override
     public void onJoystickMoved(float xPercent, float yPercent) {
 
+        whileMoving(xPercent, yPercent);
+
+    }
+
+    void whileMoving(float xPercent, float yPercent){
+
         if(yPercent <= -0.9){
             //go straight forward
-            startMoving(MOVEMENT, 0);
+            startMoving(MOVEMENT, STRAIGHT_ANGLE);
         }
         else if(yPercent >= 0.9){
             //go straight back
-            startMoving(-MOVEMENT, 0);
+            startMoving(-MOVEMENT, STRAIGHT_ANGLE);
         }
         else if(xPercent >= 0.9){
             //turn right and drive
@@ -115,7 +131,8 @@ public class JoystickMainActivity extends AppCompatActivity implements JoystickF
                     Log.i(TAG, successfulConnection);
                     Toast.makeText(getApplicationContext(), successfulConnection, Toast.LENGTH_SHORT).show();
 
-                    mqttClient.subscribe("/smartcar/ultrasound/front", QOS, null);
+                    mqttClient.subscribe(ULTRASOUND_TOPIC, QOS, null);
+                    mqttClient.subscribe(CAMERA_TOPIC, QOS, null);
                 }
 
                 @Override
@@ -136,7 +153,23 @@ public class JoystickMainActivity extends AppCompatActivity implements JoystickF
 
                 @Override
                 public void messageArrived(String topic, MqttMessage message) throws Exception {
+                    if(topic.equals(CAMERA_TOPIC)) {
+                        final Bitmap bitMap = Bitmap.createBitmap(IMAGE_WIDTH, IMAGE_HEIGHT, Bitmap.Config.ARGB_8888);
 
+                        final byte[] payload = message.getPayload();
+                        final int[] colors = new int[IMAGE_WIDTH * IMAGE_HEIGHT];
+                        for (int ci = 0; ci < colors.length; ++ci) {
+                            final int r = payload[3 * ci] & 0xFF;
+                            final int g = payload[3 * ci + 1] & 0xFF;
+                            final int b = payload[3 * ci + 2] & 0xFF;
+                            colors[ci] = Color.rgb(r, g, b);
+                        }
+                        bitMap.setPixels(colors, 0, IMAGE_WIDTH, 0, 0, IMAGE_WIDTH, IMAGE_HEIGHT);
+                        camera.setImageBitmap(bitMap);
+                    }
+                    else{
+                        Log.i(TAG, "[MQTT] Topic: " + topic + " | Message: " + message.toString());
+                        }
                 }
 
 
