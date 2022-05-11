@@ -14,6 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
+
     <EditText
         android:id="@+id/accountNumber"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -36,47 +37,49 @@
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="0.877" />
+        app:layout_constraintVertical_bias="0.21" />
 
     <EditText
         android:id="@+id/expiryDate"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="110dp"
         android:layout_height="55dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginBottom="220dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/custom_input"
         android:ems="10"
-        android:hint="@string/expiry_date"
-        android:inputType="number"
+        android:hint="@string/mm_yy"
+        android:inputType="phone"
+        android:maxLength="5"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/personName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.245"
+        app:layout_constraintHorizontal_bias="0.219"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accountNumber"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.095" />
 
     <EditText
         android:id="@+id/CCV"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="110dp"
         android:layout_height="55dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginBottom="220dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/custom_input"
         android:ems="10"
         android:hint="@string/cvv"
         android:inputType="number"
+        android:maxLength="3"
         android:textAlignment="center"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/personName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.754"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accountNumber"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.095" />
 
     <EditText
         android:id="@+id/personName"
@@ -92,15 +95,16 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accountNumber"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.66" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/CompleteButton"
-        android:layout_width="222dp"
-        android:layout_height="57dp"
-        android:layout_marginBottom="40dp"
+        android:layout_width="229dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/button"
         android:backgroundTint="#EB6A9ECA"
         android:text="@string/complete_payment"
@@ -109,14 +113,26 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/sendLinkBtn"
+        android:layout_width="201dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button"
+        android:backgroundTint="@color/bright_blue"
+        android:text="@string/send_verification_link"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/CompleteButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="343dp"
         android:layout_height="163dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="144dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -135,13 +151,40 @@
 
     <ImageView
         android:id="@+id/imageView25"
-        android:layout_width="281dp"
-        android:layout_height="179dp"
-        android:layout_marginBottom="536dp"
+        android:layout_width="251dp"
+        android:layout_height="170dp"
+        android:layout_marginBottom="544dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.865"
+        app:layout_constraintHorizontal_bias="0.993"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/payment" />
+
+    <TextView
+        android:id="@+id/subTotal"
+        android:layout_width="109dp"
+        android:layout_height="26dp"
+        android:layout_marginBottom="11dp"
+        android:hint="Sub total"
+        app:layout_constraintBottom_toTopOf="@+id/CompleteButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/personName"
+        app:layout_constraintVertical_bias="0.265" />
+
+    <TextView
+        android:id="@+id/verifyMsg"
+        android:layout_width="168dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="224dp"
+        android:text="Email not verified yet"
+        android:textColor="#E91E63"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.157" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
