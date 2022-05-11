@@ -44,5 +44,6 @@
     <string name="product_detail">product detail</string>
 
     <string name="cameraView">cameraView</string>
+    <string name="mm_yy">MM/YY</string>
 
 </resources>
