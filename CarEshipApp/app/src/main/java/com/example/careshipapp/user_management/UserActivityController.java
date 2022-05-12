@@ -43,7 +43,7 @@ public class UserActivityController extends AppCompatActivity {
     }
 
       public void openCustomerLogin() {
-        Intent intent = new Intent(this, MainActivityLoginPage.class);
+        Intent intent = new Intent(this, CustomerLoginPage.class);
         startActivity(intent);
       }
 

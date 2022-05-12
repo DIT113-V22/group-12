@@ -35,7 +35,7 @@ public class CustomerPayment  extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
 
-//firebase auth might not be needed at all in this class
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

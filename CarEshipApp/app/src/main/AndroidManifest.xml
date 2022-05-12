@@ -27,7 +27,7 @@
             android:name=".user_management.MainActivityCreateAccount"
             android:exported="false" />
         <activity
-            android:name=".user_management.MainActivityLoginPage"
+            android:name=".user_management.CustomerLoginPage"
             android:exported="true" />
         <activity
             android:name=".customer_gui.CustomerItemVerify"
