@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.careshipapp">
+    package="com.example.careshipapp" >
 
     <uses-permission
         android:name="android.permission.WAKE_LOCK"
@@ -15,7 +15,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CarEshipApp">
+        android:theme="@style/Theme.CarEshipApp" >
+        
         <activity
             android:name=".customer_gui.ListOrders"
             android:exported="false" />
@@ -69,7 +70,7 @@
             android:exported="true" />
         <activity
             android:name=".user_management.UserActivityController"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
