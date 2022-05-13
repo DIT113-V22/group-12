@@ -2,66 +2,95 @@ package com.example.careshipapp.user_management;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.careshipapp.R;
+import com.example.careshipapp.customer_gui.ListOrders;
+import com.example.careshipapp.customer_gui.MainActivityCategoryList;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class StaffLoginPage extends AppCompatActivity {
 
         EditText staffEmail, staffPassword;
         Button loginBtn;
-        DBHelperClass database;
         TextView forgetPass;
+    ProgressBar progressBar;
+    private FirebaseAuth mAuth;
+    FirebaseFirestore store;
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.staff_login_page);
 
-            setContentView(R.layout.staff_login_page);
+        mAuth = FirebaseAuth.getInstance();
+        store = FirebaseFirestore.getInstance();
 
-            staffEmail = (EditText) findViewById(R.id.staffEmail);
-            staffPassword = (EditText) findViewById(R.id.staffPassword);
-            loginBtn = (Button) findViewById(R.id.loginButton);
-            database = new DBHelperClass(this);
+        staffEmail = (EditText) findViewById(R.id.staffEmail);
+        staffPassword = (EditText) findViewById(R.id.staffPassword);
+        loginBtn = (Button) findViewById(R.id.loginButton);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar3);
 
-            loginBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String email = staffEmail.getText().toString();
-                    String password = staffPassword.getText().toString();
-                    Boolean validateUser= database.userExistsCheck(email, password);
+        progressBar.setVisibility(View.INVISIBLE);
 
-                    if(validateUser && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                        Toast.makeText(StaffLoginPage.this,"Login successful.",Toast.LENGTH_SHORT).show();
-                        successfulLogin();
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email = staffEmail.getText().toString();
+                String password = staffPassword.getText().toString();
 
-
-                    } else if(email.isEmpty() && password.isEmpty()){
-
-                    } if(email.isEmpty() && password.isEmpty()){
-
-                        Toast.makeText(StaffLoginPage.this,"Add both email and password",Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(StaffLoginPage.this,"Invalid login attempt.",Toast.LENGTH_SHORT).show();
-
-                    }
+                if(TextUtils.isEmpty(email) ){
+                   staffEmail.setError("Email field is empty");
+                   staffEmail.requestFocus();
                 }
-            });
+                else if (TextUtils.isEmpty(password) ){
+                   staffPassword.setError("Password field is empty");
+                    staffPassword.requestFocus();
+                }
+                else {
+
+                    progressBar.setVisibility(View.VISIBLE);
+
+                    mAuth.signInWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            checkIfAdmin(authResult.getUser().getUid());
+
+                        }
+                    }) .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(StaffLoginPage.this, "Incorrect email or password, please try again.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    
+                }
+            }
+        });
 
             forgetPass = (TextView) findViewById(R.id.forgetPassword);
-
             forgetPass.setOnClickListener(new View.OnClickListener() {
 
-
-              
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getApplicationContext(), ForgotPasswordAuth.class);
@@ -70,12 +99,24 @@ public class StaffLoginPage extends AppCompatActivity {
             });
         }
 
-
-        public void successfulLogin(){     //replace with orders list class when available
-            Intent intent = new Intent(this, MainActivityLoginPage.class);
+    private void checkIfAdmin(String uid) {
+        DocumentReference documentReference = store.collection("Users").document(uid);
+     documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+    @Override
+    public void onSuccess(DocumentSnapshot documentSnapshot) {
+        if(documentSnapshot.getString("isAdmin") !=null){
+            Toast.makeText(StaffLoginPage.this, "Login successful", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), ListOrders.class);
             startActivity(intent);
-        }
 
-
-
+    } else{
+            progressBar.setVisibility(View.INVISIBLE);
+        Toast.makeText(StaffLoginPage.this, "Not an authorized user.", Toast.LENGTH_SHORT).show();
     }
+    }
+});
+}
+    }
+
+
+

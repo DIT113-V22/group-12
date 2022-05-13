@@ -13,14 +13,10 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.example.careshipapp.R;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.core.Tag;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -103,12 +99,13 @@ public class MainActivityCreateAccount extends AppCompatActivity {
                        Toast.makeText(MainActivityCreateAccount.this, "Account has been created successfully.", Toast.LENGTH_SHORT).show();
 
                         id = mAuth.getCurrentUser().getUid();
-                        DocumentReference documentReference = firebaseStore.collection("UsersInfo").document(id);
+                        DocumentReference documentReference = firebaseStore.collection("Users").document(id);
 
                             Map<String,Object> usersInfo = new HashMap<>();
                             usersInfo.put("email", email);
                             usersInfo.put("address", address);
                             usersInfo.put("zipCode", code);
+                            usersInfo.put("isCustomer","1");
                             usersInfo.put("id" , mAuth.getCurrentUser().getUid());
 
                             documentReference.set(usersInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -124,7 +121,7 @@ public class MainActivityCreateAccount extends AppCompatActivity {
                                             Log.w("TAG", "Error adding user" + id);
                                         }
                                     });
-                        startActivity(new Intent(MainActivityCreateAccount.this,MainActivityLoginPage.class));
+                        startActivity(new Intent(MainActivityCreateAccount.this, CustomerLoginPage.class));
                         }
          });
 
