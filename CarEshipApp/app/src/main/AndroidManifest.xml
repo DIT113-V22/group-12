@@ -51,6 +51,15 @@
             android:name=".customer_gui.OrderConfirmation"
             android:exported="true" />
         <activity
+            android:name=".user_management.OnBoardingActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".customer_gui.TrackOrder"
             android:exported="true" />
         <activity
@@ -70,15 +79,12 @@
             android:exported="true" />
         <activity
             android:name=".user_management.UserActivityController"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
 
         <service android:name="org.eclipse.paho.android.service.MqttService" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

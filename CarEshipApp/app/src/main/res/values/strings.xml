@@ -45,5 +45,13 @@
 
     <string name="cameraView">cameraView</string>
     <string name="mm_yy">MM/YY</string>
+    <string name="first_slide">Welcome to CarEship</string>
+    <string name="second_slide">Choose Your Medicine</string>
+    <string name="third_slide">No Contact Delivery</string>
+    <string name="description">"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        "</string>
+
 
 </resources>
