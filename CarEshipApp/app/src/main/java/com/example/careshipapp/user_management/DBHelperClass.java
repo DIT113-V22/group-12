@@ -8,11 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class DBHelperClass extends SQLiteOpenHelper {
-
     private static final String DBNAME = "Users.db";
     private static final String TABLEUSERS = "Users";
     private static final String USERNAME = "username";
@@ -67,11 +64,7 @@ public class DBHelperClass extends SQLiteOpenHelper {
         usersDB.close();
 
     }
-
-
-
-
-
+    
     public Boolean usernameExistsCheck(String username){
         //Method that checks if user exists in the database.
         SQLiteDatabase usersDB = this.getWritableDatabase();
