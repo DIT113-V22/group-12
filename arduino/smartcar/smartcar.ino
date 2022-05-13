@@ -21,6 +21,14 @@ DifferentialControl control(leftMotor, rightMotor);
 
 SimpleCar car(control);
 
+//infrared sensor//
+const int leftIRPin = 1;
+const int rightIRPin = 2;
+const int backIRPin = 3;
+GP2Y0A02 leftIR(arduinoRuntime, leftIRPin);
+GP2Y0A02 rightIR(arduinoRuntime, rightIRPin);
+GP2Y0A21 backIR(arduinoRuntime, backIRPin);
+
 const auto oneSecond = 1000UL;
 #ifdef __SMCE__
 const auto triggerPin = 6;
@@ -39,6 +47,9 @@ std::vector<char> frameBuffer;
 const auto THROTTLE_TOPIC = "/smartcar/carcontrol/throttle";
 const auto STEERING_TOPIC = "/smartcar/carcontrol/steering";
 const auto ULTRA_SOUND_TOPIC = "/smartcar/ultrasound/front";
+const auto LEFT_INFRARED_SENSOR = "/smartcar/infrared/left";
+const auto RIGHT_INFRARED_SENSOR = "/smartcar/infrared/right";
+const auto BACK_INFRARED_SENSOR = "/smartcar/infrared/back";
 
 
 void stopBeforeObstacle(){
@@ -110,8 +121,15 @@ void loop() {
         if (currentTime - previousTransmission >= oneSecond) {
             previousTransmission = currentTime;
             const auto distance = String(frontSensor.getDistance());
+            const auto leftIRDis = String(leftIR.getDistance());
+            const auto rightIRDis = String(rightIR.getDistance());
+            const auto backIRDis = String(backIR.getDistance());
+
             mqtt.publish(ULTRA_SOUND_TOPIC, distance);
-            stopBeforeObstacle();
+            mqtt.publish(LEFT_INFRARED_SENSOR, leftIRDis);
+            mqtt.publish(RIGHT_INFRARED_SENSOR, rightIRDis);
+            mqtt.publish(BACK_INFRARED_SENSOR, backIRDis);
+
         }
     }
 #ifdef __SMCE__

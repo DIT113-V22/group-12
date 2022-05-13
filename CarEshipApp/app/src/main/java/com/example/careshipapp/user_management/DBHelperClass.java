@@ -8,8 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-public class DBHelperClass extends SQLiteOpenHelper {
 
+public class DBHelperClass extends SQLiteOpenHelper {
     private static final String DBNAME = "Users.db";
     private static final String TABLEUSERS = "Users";
     private static final String USERNAME = "username";
@@ -20,6 +20,7 @@ public class DBHelperClass extends SQLiteOpenHelper {
     private static final String CREATEUSERSTABLE = "CREATE TABLE " + TABLEUSERS + " ("
             + USERNAME + " TEXT PRIMARY KEY AUTOINCREMENT, "
             + PASSWORD + " TEXT," + ADDRESS + "TEXT, " + ZIPCODE + "TEXT)";
+
 
 
 
@@ -63,7 +64,7 @@ public class DBHelperClass extends SQLiteOpenHelper {
         usersDB.close();
 
     }
-
+    
     public Boolean usernameExistsCheck(String username){
         //Method that checks if user exists in the database.
         SQLiteDatabase usersDB = this.getWritableDatabase();
