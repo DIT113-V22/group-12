@@ -3,7 +3,7 @@
     <string name="password">Password</string>
     <string name="username">Username</string>
     <string name="login">LOGIN</string>
-    <string name="create_account">CREATE ACCOUNT</string>
+    <string name="create_account">Create account</string>
     <string name="please_choose_your_symptoms">Please Choose Your symptoms</string>
     <string name="symptoms_and_conditions">Symptoms and conditions</string>
     <string name="heart_disease">Heart Disease</string>
@@ -26,7 +26,7 @@
     <string name="select_your_medicine">select your medicine</string>
     <string name="post_address">post address</string>
     <string name="new_password">New password</string>
-    <string name="retype_new_password">Retype new password</string>
+    <string name="retype_new_password">Confirm your new password</string>
     <string name="zip_code">Zip code</string>
     <string name="email">Type your email</string>
     <string name="send_verification_link">Send verification link</string>
