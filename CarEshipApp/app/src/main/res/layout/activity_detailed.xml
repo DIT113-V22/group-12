@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".gui.activities.DetailedActivity">
+
+
+
+
+    <ImageView
+        android:id="@+id/detailed_img"
+        android:layout_width="427dp"
+        android:layout_height="240dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/detailed_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Product Details"
+        android:fontFamily="@font/hammersmith_one"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/ToolbarTheme"
+        />
+
+    <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="#F2E2F6F6"
+        android:translationY="-50dp"
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:cardCornerRadius="10dp"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailed_img">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/detailed_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/hammersmith_one"
+                    android:text="Product Name"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_toStartOf="@id/my_rating"
+                    android:fontFamily="@font/hammersmith_one"
+                    android:text="4.0"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+
+                <RatingBar
+                    android:id="@+id/my_rating"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="20dp"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:stepSize="0.1" />
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/detailed_desc"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/hammersmith_one"
+                android:layout_height="wrap_content"
+                android:text="That first winter, it rains and rains as if we have moved to some foreign place, away from the desert; it rains and it rains, and the water comes up to the back step and I think it will enter the house."/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price"
+                android:fontFamily="@font/hammersmith_one"
+                android:textSize="21sp"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$ : "
+                    android:textStyle="bold"
+                    android:fontFamily="@font/hammersmith_one"
+                    android:textColor="@color/careship_palette_popstar"/>
+                <TextView
+                    android:id="@+id/detailed_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/hammersmith_one"
+                    android:textColor="@color/careship_palette_popstar"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_margin="10dp">
+
+               <ImageView
+                   android:id="@+id/add_item"
+                   android:layout_width="35dp"
+                   android:layout_marginRight="10dp"
+                   android:layout_height="35dp"
+                   android:src="@drawable/plusicon_med"/>
+
+                <TextView
+                    android:id="@+id/quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/hammersmith_one"
+                    android:text="1"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/remove_item"
+
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/minusicon_med" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <Button
+
+        android:id="@+id/buy_order"
+        android:layout_width="207dp"
+        android:layout_height="63dp"
+        android:drawableLeft="@drawable/ic_baseline_shopping_cart_24"
+        android:drawableTint="@color/careship_palette_beige"
+        android:backgroundTint="@color/careship_palette_popstar"
+        android:padding="14dp"
+        android:fontFamily="@font/hammersmith_one"
+        android:textColor="@color/careship_palette_beige"
+        android:text="Add Order"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardview"
+        app:layout_constraintVertical_bias="0.363"
+        app:layout_constraintWidth_percent=".8" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

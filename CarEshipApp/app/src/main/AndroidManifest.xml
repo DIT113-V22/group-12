@@ -16,42 +16,51 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CarEshipApp" >
-        
+
         <activity
-            android:name=".customer_gui.ListOrders"
+            android:name=".gui.activities.CreateAccountActivity"
             android:exported="false" />
+
         <activity
-            android:name=".customer_gui.MainActivityCategoryList"
+            android:name=".gui.activities.MainActivity"
             android:exported="false" />
+
         <activity
-            android:name=".user_management.MainActivityCreateAccount"
+            android:name=".gui.activities.DetailedActivity"
             android:exported="false" />
+
         <activity
-            android:name=".user_management.CustomerLoginPage"
+            android:name=".gui.activities.OrderActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".gui.activities.PaymentActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".gui.activities.ShowAllActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".gui.activities.CustomerLoginActivity"
             android:exported="true" />
         <activity
-            android:name=".customer_gui.CustomerItemVerify"
+            android:name=".gui.activities.CustomerPaymentActivity"
             android:exported="true" />
         <activity
-            android:name=".customer_gui.CustomerPayment"
+            android:name=".gui.activities.StaffLoginActivity"
             android:exported="true" />
         <activity
-            android:name=".user_management.StaffLoginPage"
-            android:exported="true" />
-        <activity
-            android:name=".user_management.ForgotPasswordAuth"
-            android:exported="true" />
-        <activity
-            android:name=".user_management.UpdatePassword"
+            android:name=".gui.ForgotPasswordAuthActivity"
             android:exported="true" />
         <activity
             android:name=".car_control.JoystickMainActivity"
             android:exported="true" />
         <activity
-            android:name=".customer_gui.OrderConfirmation"
+            android:name=".gui.activities.PaymentConfirmationActivity"
             android:exported="true" />
         <activity
-            android:name=".user_management.OnBoardingActivity"
+            android:name=".gui.activities.OnBoardingActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,25 +69,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".customer_gui.TrackOrder"
+            android:name=".gui.activities.TrackOrderActivity"
             android:exported="true" />
         <activity
-            android:name=".customer_gui.heartdisease"
-            android:exported="true" />
-        <activity
-            android:name=".customer_gui.CommonCold"
-            android:exported="true" />
-        <activity
-            android:name=".customer_gui.asthma"
-            android:exported="true" />
-        <activity
-            android:name=".customer_gui.anxiety"
-            android:exported="true" />
-        <activity
-            android:name=".customer_gui.allergies"
-            android:exported="true" />
-        <activity
-            android:name=".user_management.UserActivityController"
+            android:name=".gui.activities.UserControllerActivity"
             android:exported="true" />
 
         <service android:name="org.eclipse.paho.android.service.MqttService" />
