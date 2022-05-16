@@ -122,7 +122,7 @@ public class JoystickFunctionality extends SurfaceView implements SurfaceHolder.
     }
 
     public interface JoystickListener {
-        void onJoystickMoved(float xPercent, float yPercent);
+        void onJoystickMoved(float xCoordinate, float yCoordinate);
     }
 
     public void instanceOf(Context context){
