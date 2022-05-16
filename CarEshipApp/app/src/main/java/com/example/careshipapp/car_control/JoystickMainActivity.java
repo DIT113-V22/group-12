@@ -53,37 +53,45 @@ public class JoystickMainActivity extends AppCompatActivity implements JoystickF
     }
 
     @Override
-    public void onJoystickMoved(float xPercent, float yPercent) {
+    public void onJoystickMoved(float xCoordinate, float yCoordinate) {
 
-        whileMoving(xPercent, yPercent);
+
+
+        whileMoving(xCoordinate, yCoordinate);
 
     }
 
-    void whileMoving(float xPercent, float yPercent){
+    void whileMoving(float x, float y){
 
-        if(yPercent <= -0.9){
+
+        if(y <= -0.2){
             //go straight forward
-            startMoving(MOVEMENT, STRAIGHT_ANGLE);
+            startMoving(adjustSpeed(-y), STRAIGHT_ANGLE);
         }
-        else if(yPercent >= 0.9){
+        else if(y >= 0.9){
             //go straight back
             startMoving(-MOVEMENT, STRAIGHT_ANGLE);
         }
-        else if(xPercent >= 0.9){
+        else if(x >= 0.2){
             //turn right and drive
-            startMoving(MOVEMENT, TURN);
+            startMoving(adjustSpeed(x), TURN);
         }
-        else if(xPercent <= -0.9){
+        else if(x <= -0.2){
             //turn left and drive
-            startMoving(MOVEMENT, -TURN);
+            startMoving(adjustSpeed(-x), -TURN);
         }
-        else if(yPercent == 0 && xPercent == 0){
+        else if(y == 0 && x == 0){
             //stop the car
             stopCar();
         }
     }
 
-    void startMoving(int throttle, int steeringDirection){
+    float adjustSpeed(float value){
+        return value*100;
+    }
+
+
+    void startMoving(float throttle, int steeringDirection){
         if (!isConnected) {
             final String notConnected = "Not connected (yet)";
             Log.e(TAG, notConnected);
@@ -91,7 +99,7 @@ public class JoystickMainActivity extends AppCompatActivity implements JoystickF
             return;
         }
 
-        mqttClient.publish(THROTTLE_TOPIC, Integer.toString(throttle), QOS, null);
+        mqttClient.publish(THROTTLE_TOPIC, Float.toString(throttle), QOS, null);
         mqttClient.publish(STEERING_TOPIC, Integer.toString(steeringDirection), QOS, null);
 
     }
@@ -131,7 +139,7 @@ public class JoystickMainActivity extends AppCompatActivity implements JoystickF
                     Log.i(TAG, successfulConnection);
                     Toast.makeText(getApplicationContext(), successfulConnection, Toast.LENGTH_SHORT).show();
 
-                    mqttClient.subscribe(ULTRASOUND_TOPIC, QOS, null);
+                   // mqttClient.subscribe(ULTRASOUND_TOPIC, QOS, null);
                     mqttClient.subscribe(CAMERA_TOPIC, QOS, null);
                 }
 
