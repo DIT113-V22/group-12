@@ -52,6 +52,8 @@
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         "</string>
+    <string name="autopilot" />
+    <string name="Autopilot">Autopilot</string>
 
 
 </resources>
