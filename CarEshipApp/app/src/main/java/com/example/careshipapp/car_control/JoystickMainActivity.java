@@ -4,13 +4,17 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.careshipapp.R;
+import com.google.android.material.button.MaterialButton;
 
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
@@ -26,6 +30,9 @@ public class JoystickMainActivity extends AppCompatActivity implements JoystickF
     private static final String STEERING_TOPIC = "/smartcar/carcontrol/steering";
     private static final String CAMERA_TOPIC = "/smartcar/camera";
     private static final String ULTRASOUND_TOPIC = "/smartcar/ultrasound/front";
+    private static final String AUTOPILOT_TOPIC = "/smartcar/autopilot";
+    private static final int AUTOPILOT_ACTIVATED = 1;
+    private static final int AUTOPILOT_DEACTIVATED = 0;
     private static final int MOVEMENT = 50;
     private static final int TURN = 70;
     private static final int STRAIGHT_ANGLE = 0;
@@ -37,6 +44,7 @@ public class JoystickMainActivity extends AppCompatActivity implements JoystickF
     private MqttClient mqttClient;
     private boolean isConnected = false;
     private ImageView camera;
+    private Switch autopilot;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,9 +54,18 @@ public class JoystickMainActivity extends AppCompatActivity implements JoystickF
         setContentView(R.layout.joystick_main_activity);
         mqttClient = new MqttClient(getApplicationContext(), MQTT_SERVER, TAG);
         camera = findViewById(R.id.imageView);
-
-
+        autopilot = (Switch) findViewById(R.id.autopilot);
         connectToMqttBroker();
+
+        autopilot.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+
+             activateAutopilot();
+
+            }
+        });
 
     }
 
@@ -59,6 +76,23 @@ public class JoystickMainActivity extends AppCompatActivity implements JoystickF
 
         whileMoving(xCoordinate, yCoordinate);
 
+    }
+
+    void activateAutopilot(){
+
+        String autopilotActivated = "Autopilot is activated";
+        String autopilotDeactivated = "Autopilot is deactivated";
+
+        if(autopilot.isChecked()){
+
+            mqttClient.publish(AUTOPILOT_TOPIC, Integer.toString(AUTOPILOT_ACTIVATED), QOS,null);
+            Toast.makeText(getApplicationContext(), autopilotActivated, Toast.LENGTH_SHORT).show();
+        }
+        else{
+            mqttClient.publish(AUTOPILOT_TOPIC, Integer.toString(AUTOPILOT_DEACTIVATED), QOS,null);
+            Toast.makeText(getApplicationContext(), autopilotDeactivated, Toast.LENGTH_SHORT).show();
+
+        }
     }
 
     void whileMoving(float x, float y){
