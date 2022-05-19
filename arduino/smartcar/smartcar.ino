@@ -50,19 +50,14 @@ const auto ULTRA_SOUND_TOPIC = "/smartcar/ultrasound/front";
 const auto LEFT_INFRARED_SENSOR = "/smartcar/infrared/left";
 const auto RIGHT_INFRARED_SENSOR = "/smartcar/infrared/right";
 const auto BACK_INFRARED_SENSOR = "/smartcar/infrared/back";
+const auto AUTOPILOT_TOPIC = "/smartcar/autopilot";
+bool autoPilotOn = false;
 
-
-void stopBeforeObstacle(){
-    const auto distance = frontSensor.getDistance();
-    if(distance < 50 && distance > 0){
-        car.setSpeed(0);
-    }
-}
 
 void setup() {
-  Serial.begin(9600);
+    Serial.begin(9600);
 #ifdef __SMCE__
-  Camera.begin(QVGA, RGB888, 15);
+    Camera.begin(QVGA, RGB888, 15);
   frameBuffer.resize(Camera.width() * Camera.height() * Camera.bytesPerPixel());
 #endif
 
@@ -90,14 +85,21 @@ void setup() {
 
 
 
-    mqtt.subscribe("/smartcar/carcontrol/#", 1);
+    mqtt.subscribe("/smartcar/#", 1);
     mqtt.onMessage([](String topic, String message) {
         if (topic == THROTTLE_TOPIC) {
             car.setSpeed(message.toInt());
 
         } else if (topic == STEERING_TOPIC) {
             car.setAngle(message.toInt());
-        } else {
+        } else if(topic == AUTOPILOT_TOPIC){
+            if(message.toInt() == 1){
+                autoPilotOn = true;
+            }
+            else if(message.toInt() == 0){
+                autoPilotOn = false;
+            }
+        }else {
             Serial.println(topic + " " + message);
         }
     });
@@ -108,7 +110,7 @@ void loop() {
         mqtt.loop();
         const auto currentTime = millis();
 #ifdef __SMCE__
-    static auto previousFrame = 0UL;
+        static auto previousFrame = 0UL;
     if (currentTime - previousFrame >= 65) {
       previousFrame = currentTime;
       Camera.readFrame(frameBuffer.data());
@@ -133,7 +135,38 @@ void loop() {
         }
     }
 #ifdef __SMCE__
+
+    if(autoPilotOn == true){
+        autoPilot();
+      }
+
     // Avoid over-using the CPU if we are running in the emulator
   delay(1);
 #endif
+}
+
+void autoPilot(){
+    const auto frontDistance = frontSensor.getDistance();
+    const auto leftIRDis = leftIR.getDistance();
+    const auto rightIRDis = rightIR.getDistance();
+    const auto backIRDis = backIR.getDistance();
+
+
+    if(frontDistance < 80 && frontDistance > 0){
+
+        if(leftIRDis < 40 && leftIRDis > 0 && rightIRDis == 0){
+            car.setAngle(100);
+        }
+        else if(leftIRDis == 0 && rightIRDis < 40 && rightIRDis > 0){
+            car.setAngle(-100);
+        }
+        else if(leftIRDis == 0 && rightIRDis == 0){
+            car.setAngle(100);
+        }
+    }
+    else{
+        car.setAngle(0);
+        car.setSpeed(40);
+
+    }
 }
