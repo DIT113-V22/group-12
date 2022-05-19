@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".gui.activities.PaymentActivity">
+    tools:context=".gui.activities.CustomerPaymentActivity">
+
 
 
     <androidx.appcompat.widget.Toolbar
@@ -33,6 +35,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
+
     <EditText
         android:id="@+id/accountNumber"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -46,8 +49,9 @@
         android:fontFamily="@font/hammersmith_one"
         android:hint="account number"
         android:inputType="number"
+        android:maxLength="10"
         android:textAlignment="center"
-        android:textColor="@color/careship_palette_raisin_black"
+        android:textColor="#000000"
         android:textColorHighlight="#FFFFFF"
         android:textColorLink="#FBFBFB"
         android:textSize="16sp"
@@ -57,38 +61,15 @@
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="0.739" />
-
-    <EditText
-        android:id="@+id/expiryDate"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="98dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/custom_input"
-        android:ems="10"
-        android:fontFamily="@font/hammersmith_one"
-        android:hint="@string/mm_yy"
-        android:inputType="phone"
-        android:maxLength="5"
-        android:textAlignment="center"
-        android:textColor="@color/careship_palette_raisin_black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/personName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.308"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/accountNumber"
-        app:layout_constraintVertical_bias="0.962" />
+        app:layout_constraintVertical_bias="0.571" />
 
     <EditText
         android:id="@+id/CCV"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="93dp"
-        android:layout_height="42dp"
+        android:layout_width="97dp"
+        android:layout_height="54dp"
         android:layout_marginTop="28dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="27dp"
         android:background="@drawable/custom_input"
         android:ems="10"
         android:fontFamily="@font/hammersmith_one"
@@ -100,7 +81,7 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/personName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintHorizontal_bias="0.71"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accountNumber"
         app:layout_constraintVertical_bias="1.0" />
@@ -108,53 +89,37 @@
     <EditText
         android:id="@+id/personName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="221dp"
-        android:layout_height="43dp"
+        android:layout_width="285dp"
+        android:layout_height="54dp"
         android:layout_marginBottom="132dp"
         android:background="@drawable/custom_input"
         android:ems="10"
         android:fontFamily="@font/hammersmith_one"
-        android:hint="@string/card_owner"
+        android:hint="@string/card_holder"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="@color/careship_palette_raisin_black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accountNumber"
-        app:layout_constraintVertical_bias="0.66" />
+        app:layout_constraintVertical_bias="0.794" />
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/CompleteButton"
         android:layout_width="229dp"
         android:layout_height="61dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/button_coral"
+        android:fontFamily="@font/hammersmith_one"
         android:text="@string/complete_payment"
-        android:textColor="@color/white"
 
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:fontFamily="@font/hammersmith_one"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/sendLinkBtn"
-        android:layout_width="201dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/button_coral"
-        android:text="@string/send_verification_link"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/CompleteButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:fontFamily="@font/hammersmith_one"
-
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -190,33 +155,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/payment" />
 
-    <TextView
-        android:id="@+id/subTotal"
-        android:layout_width="109dp"
-        android:layout_height="26dp"
-        android:layout_marginBottom="11dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/CompleteButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:fontFamily="@font/hammersmith_one"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/careship_palette_popstar"
-        app:layout_constraintTop_toBottomOf="@+id/personName"
-        app:layout_constraintVertical_bias="0.265" />
 
     <TextView
-        android:id="@+id/verifyMsg"
-        android:layout_width="168dp"
-        android:layout_height="34dp"
-        android:layout_marginEnd="224dp"
-        android:text="Email not verified yet"
-        android:textColor="#E91E63"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.157" />
+        android:id="@+id/subTotal"
+        android:layout_width="158dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/hammersmith_one"
+        android:gravity="center"
+        android:hint="Sub total"
+        android:textColor="@color/careship_palette_popstar"
+        app:layout_constraintBottom_toTopOf="@+id/CompleteButton"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/expiryDatePickerBtn"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="105dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="27dp"
+        android:background="@drawable/custom_input"
+        android:backgroundTintMode="src_in"
+        android:ems="10"
+        android:fontFamily="@font/hammersmith_one"
+        android:onClick="datePickerOpened"
+        android:text="Expiry date"
+        android:textColor="#CB2A292C"
+        app:layout_constraintBottom_toTopOf="@+id/personName"
+        app:layout_constraintEnd_toStartOf="@+id/CCV"
+        app:layout_constraintHorizontal_bias="0.771"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accountNumber"
+        app:layout_constraintVertical_bias="1.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

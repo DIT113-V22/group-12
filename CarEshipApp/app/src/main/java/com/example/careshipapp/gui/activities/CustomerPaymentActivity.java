@@ -1,134 +1,228 @@
 package com.example.careshipapp.gui.activities;
 
-import static android.content.ContentValues.TAG;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.careshipapp.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class CustomerPaymentActivity extends AppCompatActivity {
 
-    EditText accountNumber, expiryDate, ccv, personName;
-    Button completeButton,  linkBtn;
-    TextView subTotal, verifyMsg;
-    private FirebaseAuth mAuth;
+        EditText accountNumber, ccv, personName;
+        Button completeButton;
+        TextView subTotal;
+        private FirebaseAuth mAuth;
+        private FirebaseFirestore fStore;
+        private DatePickerDialog dialog;
+        private Button expiryDatePicker;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.customer_payment);
+
+            accountNumber = findViewById(R.id.accountNumber);
+            ccv = findViewById(R.id.CCV);
+            personName = findViewById(R.id.personName);
+            expiryDatePicker = findViewById(R.id.expiryDatePickerBtn);
+            expiryDatePicker.setText(currentDate());
 
 
+            subTotal = findViewById(R.id.subTotal);
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.customer_payment);
-
-       accountNumber = findViewById(R.id.accountNumber);
-       expiryDate = findViewById(R.id.expiryDate);
-       ccv = findViewById(R.id.CCV);
-       personName = findViewById(R.id.personName);
-       completeButton = findViewById(R.id.CompleteButton);
-       linkBtn = findViewById(R.id.sendLinkBtn);
-       verifyMsg= findViewById(R.id.verifyMsg);
-       //Include amount in payment screen?
-       subTotal = findViewById(R.id.subTotal);
-
-        mAuth = FirebaseAuth.getInstance();
-
-        completeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                cardValidate();
-            }
-        });
-    }
-    private void cardValidate() {
-
-        Editable editable = null;
-
-        String accountNum = accountNumber.getText().toString();
-        String expiry = expiryDate.getText().toString();
-        String CCV = ccv.getText().toString();
-        String name = personName.getText().toString();
-
-        if(accountNum.isEmpty() ||expiry.isEmpty() || CCV.isEmpty() ||name.isEmpty()){
-            Toast.makeText(CustomerPaymentActivity.this, "Please fill-in all boxes.", Toast.LENGTH_SHORT).show();
-        }
-        else if (accountNumber.length() != 10) {
-            Toast.makeText(CustomerPaymentActivity.this, "Please fill-in all boxes.", Toast.LENGTH_SHORT).show();
-        }
-        else if (ccv.length() != 3) {
-            Toast.makeText(CustomerPaymentActivity.this, "ccv should contain only 3 digits.", Toast.LENGTH_SHORT).show();
+            double amount = 0.0;
+            amount = getIntent().getDoubleExtra("amount", 0.0);
+            subTotal = findViewById(R.id.subTotal);
+            subTotal.setText("Total:  " + amount + " $");
 
 
-        }  //not sure about this and where it should be yet
-        else if (editable.length() > 0 && (editable.length() % 3) == 0) {
-                final char c = editable.charAt(editable.length() - 1);
-                if ('/' == c) {
-                    editable.delete(editable.length() - 1, editable.length());
+            mAuth = FirebaseAuth.getInstance();
+            fStore = FirebaseFirestore.getInstance();
+
+            dateShow();
+            expiryDatePicker = findViewById(R.id.expiryDatePickerBtn);
+            expiryDatePicker.setText(currentDate());
+
+            completeButton = findViewById(R.id.CompleteButton);
+            completeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    cardValidate();
                 }
-            }
-           else if (editable.length() > 0 && (editable.length() % 3) == 0) {
-                char c = editable.charAt(editable.length() - 1);
-                if (Character.isDigit(c) && TextUtils.split(editable.toString(), String.valueOf("/")).length <= 2) {
-                    editable.insert(editable.length() - 1, String.valueOf("/"));
+            });
+
+        }
+
+
+        private void cardValidate() {
+
+            String accountNum = accountNumber.getText().toString();
+            String CCV = ccv.getText().toString();
+            String name = personName.getText().toString();
+            String expiry = (String) expiryDatePicker.getText();
+
+
+                if(accountNum.isEmpty() || expiry.isEmpty() || CCV.isEmpty() || name.isEmpty()){
+                    Toast.makeText(CustomerPaymentActivity.this, "Please fill-in all boxes.", Toast.LENGTH_SHORT).show();
                 }
+                else if (accountNum.length() != 10) {
+                    accountNumber.setError("invalid account number.");
+                    accountNumber.requestFocus();
+                }
+                else if (CCV.length() != 3) {
+                    ccv.setError("invalid ccv.");
+                    ccv.requestFocus();
+
+                }else if(!name.matches("[a-zA-Z ]+"))
+                {
+                    personName.requestFocus();
+                    personName.setError("Enter alphabetical characters only.");
+
+                }
+                else  {
+                    String notPaid = "Not Yet Paid";
+                    String id  = mAuth.getCurrentUser().getUid();
+
+                    Map<String, Object> paid = new HashMap<>();
+                    paid.put("payment", "Paid");
+
+                    fStore.collection("Order").document(id)
+                            .collection("User").whereEqualTo("payment", notPaid)
+                            .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                                    if (task.isSuccessful() && !task.getResult().isEmpty()) {
+
+                                        DocumentSnapshot documentSnapshot = task.getResult().getDocuments().get(0);
+                                        String documentID = documentSnapshot.getId();
+
+                                        fStore.collection("Order").document(id).collection("User").document(documentID).update(paid)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+
+
+                                                    @Override
+                                                    public void onSuccess(Void unused) {
+                                                        Toast.makeText(CustomerPaymentActivity.this,"Payment registered.",Toast.LENGTH_SHORT).show();
+                                                        startActivity(new Intent(CustomerPaymentActivity.this, PaymentConfirmationActivity.class));
+                                                    }
+
+                                                }) .addOnFailureListener(new OnFailureListener() {
+
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+
+                                                        Toast.makeText(CustomerPaymentActivity.this,"Something went wrong.",Toast.LENGTH_SHORT).show();
+
+                                                    }
+                                                });
+
+                                    }
+                                }
+
+                            });
+
+                }
+
+            }
+            private String currentDate()
+            {
+                java.util.Calendar cal = java.util.Calendar.getInstance();
+                int year = cal.get(java.util.Calendar.YEAR);
+                int month = cal.get(java.util.Calendar.MONTH);
+                month = month + 1;
+                int day = cal.get(java.util.Calendar.DAY_OF_MONTH);
+                return dateString(day, month, year);
             }
 
-       linkBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            private void dateShow(){
+                DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        String date = dateString(day, month, year);
+                        month = month + 1;
+                        expiryDatePicker.setText(date);
 
-                FirebaseUser user = mAuth.getCurrentUser();
-                assert user != null;
-                user.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                    Toast.makeText(CustomerPaymentActivity.this,"Verification link has been sent to your email",Toast.LENGTH_SHORT).show();
                     }
-                }) .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d(TAG,"onFailure: email not sent." + e.getMessage());
-                    }
-                });
-                completeButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if(!user.isEmailVerified()) {
-                            verifyMsg.setVisibility(View.VISIBLE);
-                            Toast.makeText(CustomerPaymentActivity.this,"Email is not verified yet",Toast.LENGTH_SHORT).show();
-                        } else {
-                           Intent intent = new Intent(CustomerPaymentActivity.this, PaymentConfirmationActivity.class);
-                        }
-                    }
-                });
+                };
+
+                java.util.Calendar calender = java.util.Calendar.getInstance();
+                int year = calender.get(java.util.Calendar.YEAR);
+                int month = calender.get(java.util.Calendar.MONTH);
+                int day = calender.get(Calendar.DAY_OF_MONTH);
+
+                dialog = new DatePickerDialog(this, dateSetListener, year, month, day);
+
+
+
             }
-        });
+
+            private String dateString(int day, int month, int year) {
+                return   day + "-" + monthFormat(month) + "-" + year;
+            }
 
 
 
-        //Intent intent = new Intent(CustomerPayment.this,EmailVerification.class);
+            private String monthFormat(int month){
+                if(month == 1)
+                    return "01";
+                if(month == 2)
+                    return "02";
+                if(month == 3)
+                    return "03";
+                if(month == 4)
+                    return "04";
+                if(month == 5)
+                    return "05";
+                if(month == 6)
+                    return "06";
+                if(month == 7)
+                    return "07";
+                if(month == 8)
+                    return "08";
+                if(month == 9)
+                    return "09";
+                if(month == 10)
+                    return "10";
+                if(month == 11)
+                    return "11";
+                if(month == 12)
+                    return "12";
+                return "";
+            }
 
 
+            public void datePickerOpened(View view) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.add(Calendar.DATE, 0);
+                dialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
+                dialog.show();
+
+            }
 
         }
-
-        }
-
-

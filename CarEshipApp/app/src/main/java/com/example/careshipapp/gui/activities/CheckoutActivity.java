@@ -20,7 +20,7 @@ public class CheckoutActivity extends AppCompatActivity {
         setContentView(R.layout.order_confirmation);
 
 
-      btn = findViewById(R.id.buttonTrackOrder);
+      btn = findViewById(R.id.backButton);
 
       btn.setOnClickListener(new View.OnClickListener() {
           @Override

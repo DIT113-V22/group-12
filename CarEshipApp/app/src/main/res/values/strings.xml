@@ -54,6 +54,13 @@
         "</string>
     <string name="autopilot" />
     <string name="Autopilot">Autopilot</string>
+    <string name="card_holder">Card holder</string>
+    <string name="order_confirmation">Order Confirmation</string>
+    <string name="estimated_delivery">Estimated delivery</string>
+    <string name="your_payment_was_successful">Your payment was successful</string>
+    <string name="order_date">Order date:</string>
+    <string name="verification_link_has_been_sent_to_your_email">Verification link has been sent to your email</string>
+
 
 
 </resources>

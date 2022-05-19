@@ -131,7 +131,7 @@ public class DetailedActivity extends AppCompatActivity {
 
                 addToOrderList();
 
-                Intent intent = new Intent(DetailedActivity.this, PaymentActivity.class);
+                Intent intent = new Intent(DetailedActivity.this, CustomerPaymentActivity.class);
                 intent.putExtra("amount",amount);
                 startActivity(intent);
             }
