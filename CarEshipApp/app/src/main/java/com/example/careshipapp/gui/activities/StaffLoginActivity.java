@@ -102,8 +102,7 @@ public class StaffLoginActivity extends AppCompatActivity {
     public void onSuccess(DocumentSnapshot documentSnapshot) {
         if(documentSnapshot.getString("isAdmin") !=null){
             Toast.makeText(StaffLoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-            //Intent intent = new Intent(getApplicationContext(), ListOrders.class);
-            //startActivity(intent);
+            startActivity(new Intent(StaffLoginActivity.this, StaffOrderActivity.class));
 
     } else{
             progressBar.setVisibility(View.INVISIBLE);

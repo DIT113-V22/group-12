@@ -34,10 +34,6 @@
             android:exported="false" />
 
         <activity
-            android:name=".gui.activities.PaymentActivity"
-            android:exported="false" />
-
-        <activity
             android:name=".gui.activities.ShowAllActivity"
             android:exported="false" />
 
@@ -59,6 +55,14 @@
         <activity
             android:name=".gui.activities.PaymentConfirmationActivity"
             android:exported="true" />
+        <activity
+            android:name=".gui.activities.AddressActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".gui.activities.StaffOrderActivity"
+            android:exported="true" />
+
         <activity
             android:name=".gui.activities.OnBoardingActivity"
             android:exported="true" >

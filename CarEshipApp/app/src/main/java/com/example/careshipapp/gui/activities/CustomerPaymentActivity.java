@@ -33,7 +33,9 @@ public class CustomerPaymentActivity extends AppCompatActivity {
         EditText accountNumber, ccv, personName;
         Button completeButton;
         TextView subTotal;
-        private FirebaseAuth mAuth;
+        TextView orderID;
+
+    private FirebaseAuth mAuth;
         private FirebaseFirestore fStore;
         private DatePickerDialog dialog;
         private Button expiryDatePicker;
@@ -48,9 +50,13 @@ public class CustomerPaymentActivity extends AppCompatActivity {
             personName = findViewById(R.id.personName);
             expiryDatePicker = findViewById(R.id.expiryDatePickerBtn);
             expiryDatePicker.setText(currentDate());
-
+            orderID = findViewById(R.id.payment_orderid);
 
             subTotal = findViewById(R.id.subTotal);
+
+            int orderID_payment = 0;
+            orderID_payment = getIntent().getIntExtra("orderid_detailed",0);
+            orderID.setText(orderID_payment+"");
 
 
             double amount = 0.0;
@@ -129,7 +135,11 @@ public class CustomerPaymentActivity extends AppCompatActivity {
                                                     @Override
                                                     public void onSuccess(Void unused) {
                                                         Toast.makeText(CustomerPaymentActivity.this,"Payment registered.",Toast.LENGTH_SHORT).show();
-                                                        startActivity(new Intent(CustomerPaymentActivity.this, PaymentConfirmationActivity.class));
+
+                                                        String orderid_add = orderID.getText().toString();
+                                                        Intent intent = new Intent(CustomerPaymentActivity.this,AddressActivity.class);
+                                                        intent.putExtra("orderid_address",orderid_add);
+                                                        startActivity(intent);
                                                     }
 
                                                 }) .addOnFailureListener(new OnFailureListener() {

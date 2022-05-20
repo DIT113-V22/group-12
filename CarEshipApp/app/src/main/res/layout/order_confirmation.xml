@@ -6,35 +6,49 @@
     android:layout_height="match_parent">
 
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_order_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/careship_palette_glaucous"
+        android:theme="@style/ToolbarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Confirmation" />
+
+
     <TextView
         android:id="@+id/estimatedDeliver"
         android:layout_width="370dp"
         android:layout_height="70dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="124dp"
         android:background="@color/Purple"
         android:fontFamily="@font/hammersmith_one"
         android:text="@string/estimated_delivery"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.607"
+        app:layout_constraintHorizontal_bias="0.707"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orderID" />
 
     <TextView
         android:id="@+id/estimatedDeliveryDate"
-        android:layout_width="175dp"
-        android:layout_height="51dp"
+        android:layout_width="345dp"
+        android:layout_height="38dp"
         android:layout_marginEnd="20dp"
+        android:fontFamily="@font/hammersmith_one"
         android:textColor="#000000"
-        android:textSize="22sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/estimatedDeliver"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintVertical_bias="0.838" />
+
 
     <ImageView
         android:id="@+id/imageView"
@@ -42,7 +56,7 @@
         android:layout_height="27dp"
         android:layout_marginStart="9dp"
         android:layout_marginEnd="14dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="12dp"
         android:fontFamily="@font/hammersmith_one"
         app:layout_constraintBottom_toTopOf="@+id/orderConfirmation"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,16 +64,16 @@
         app:layout_constraintStart_toEndOf="@+id/orderConfirmation"
         app:srcCompat="@drawable/logo" />
 
-
     <TextView
         android:id="@+id/orderID"
         android:layout_width="353dp"
         android:layout_height="40dp"
         android:layout_marginTop="384dp"
+        android:gravity="center"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/hammersmith_one"
         android:text="@string/your_payment_was_successful"
-        android:textColor="#090505"
+        android:textColor="@color/careship_palette_popstar"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,17 +85,18 @@
 
     <TextView
         android:id="@+id/dateText"
-        android:layout_width="212dp"
-        android:layout_height="51dp"
+        android:layout_width="309dp"
+        android:layout_height="39dp"
+        android:fontFamily="@font/hammersmith_one"
         android:text=""
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
+        app:layout_constraintHorizontal_bias="0.026"
         app:layout_constraintStart_toStartOf="@+id/date"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.654" />
+        app:layout_constraintVertical_bias="0.695" />
 
     <TextView
         android:id="@+id/date"
@@ -90,12 +105,12 @@
         android:layout_marginBottom="28dp"
         android:background="@color/tinted_marine"
         android:fontFamily="@font/hammersmith_one"
-        android:text="Order date"
+        android:text="Order Date: "
         android:textColor="@color/careship_palette_raisin_black"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/estimatedDeliver"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.607"
+        app:layout_constraintHorizontal_bias="0.658"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -107,7 +122,7 @@
         android:layout_marginEnd="67dp"
         android:fontFamily="@font/hammersmith_one"
         android:text="@string/order_confirmation"
-        android:textColor="@color/careship_palette_popstar"
+        android:textColor="@color/careship_palette_raisin_black"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -122,19 +137,18 @@
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="126dp"
         android:layout_height="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/button_coral"
         android:drawableBottom="@drawable/ic_baseline_home_24"
         android:fontFamily="@font/hammersmith_one"
+        android:drawableTint="@color/careship_palette_beige"
         android:textAllCaps="false"
         android:textColor="@color/careship_palette_beige"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView19"
-        app:layout_constraintVertical_bias="1.0"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
@@ -152,10 +166,11 @@
 
     <ImageView
         android:id="@+id/imageView19"
-        android:layout_width="49dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="252dp"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="260dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView16"
         app:srcCompat="@drawable/confirmation__1_" />

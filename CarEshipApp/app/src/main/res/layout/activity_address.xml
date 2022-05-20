@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".gui.activities.AddressActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/home_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="108dp"
+        android:background="@color/careship_palette_glaucous"
+        android:theme="@style/ToolbarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/imageView20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Address" />
+
+
+    <TextView
+        android:id="@+id/orderConfirmation"
+        android:layout_width="387dp"
+        android:layout_height="59dp"
+        android:fontFamily="@font/hammersmith_one"
+        android:gravity="center"
+        android:text="Enter Delivery Information"
+        android:textColor="@color/careship_palette_raisin_black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.156" />
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="131dp"
+        android:layout_height="0dp"
+
+        android:layout_marginBottom="451dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_toolbar"
+        app:srcCompat="@drawable/delivery" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="281dp"
+        android:layout_height="309dp"
+        android:layout_marginTop="304dp"
+        android:backgroundTint="@color/grey_font"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/background_gardient" />
+
+    <EditText
+        android:id="@+id/contact_number"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="207dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="164dp"
+        android:background="@drawable/custom_input"
+        android:backgroundTintMode="src_in"
+        android:ems="10"
+        android:fontFamily="@font/hammersmith_one"
+        android:hint="contact number"
+        android:textAlignment="center"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorLink="#FBFBFB"
+        android:textSize="16sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postcode"
+        app:layout_constraintVertical_bias="0.705" />
+
+    <EditText
+        android:id="@+id/postcode"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="207dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="220dp"
+        android:background="@drawable/custom_input"
+        android:backgroundTintMode="src_in"
+        android:ems="10"
+        android:fontFamily="@font/hammersmith_one"
+        android:hint="post code"
+        android:textAlignment="center"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorLink="#FBFBFB"
+        android:textSize="16sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/post_address" />
+
+    <EditText
+        android:id="@+id/post_address"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="207dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="280dp"
+        android:background="@drawable/custom_input"
+        android:backgroundTintMode="src_in"
+        android:ems="10"
+        android:fontFamily="@font/hammersmith_one"
+        android:hint="post address"
+        android:textAlignment="center"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorLink="#FBFBFB"
+        android:textSize="16sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_id_address"
+        app:layout_constraintVertical_bias="0.864" />
+
+    <Button
+        android:id="@+id/save_address"
+        android:layout_width="104dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="48dp"
+        android:backgroundTint="@color/careship_palette_popstar"
+        android:text="Done"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/order_id_address"
+        android:layout_width="182dp"
+        android:layout_height="30dp"
+        android:fontFamily="@font/hammersmith_one"
+        android:text="TextView"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView20"
+        app:layout_constraintVertical_bias="0.217" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="142dp"
+        android:layout_height="27dp"
+        android:fontFamily="@font/hammersmith_one"
+        android:gravity="center"
+        android:text="Order ID :"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.286"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView20"
+        app:layout_constraintVertical_bias="0.215" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

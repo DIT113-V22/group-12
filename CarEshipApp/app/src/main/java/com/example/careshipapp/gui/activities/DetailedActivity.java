@@ -33,7 +33,7 @@ public class DetailedActivity extends AppCompatActivity {
 
     ImageView detailedImg;
     TextView rating,name,description,price,quantity;
-    Button placeOrder,buyNow;
+    Button placeOrder;
     ImageView addItems,removeItems;
 
     Toolbar toolbar;
@@ -122,17 +122,74 @@ public class DetailedActivity extends AppCompatActivity {
 
                 double amount = 0.0;
 
+
                 if(newProductsModel != null){
                     amount =  newProductsModel.getPrice() * totalQuantity;
                 }
                 if( showAllModel != null){
-                   amount = showAllModel.getPrice() * totalQuantity;
+                    amount = showAllModel.getPrice() * totalQuantity;
                 }
 
-                addToOrderList();
+                //addToOrderList();
 
-                Intent intent = new Intent(DetailedActivity.this, CustomerPaymentActivity.class);
+                String saveCurrentTime,saveCurrentDate;
+                Calendar calForDate = Calendar.getInstance();
+                int orderID = generateOrderID();
+
+
+                SimpleDateFormat currentDate = new SimpleDateFormat("yyyy - MM - dd");
+                saveCurrentDate = currentDate.format(calForDate.getTime());
+
+                SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss");
+                saveCurrentTime = currentTime.format(calForDate.getTime());
+
+                final HashMap<String,Object> cartMap = new HashMap<>();
+                final HashMap<String,Object> staffMap = new HashMap<>();
+
+                cartMap.put("productName", name.getText().toString());
+                cartMap.put("productPrice",price.getText().toString());
+                cartMap.put("currentTime",saveCurrentTime);
+                cartMap.put("currentDate",saveCurrentDate);
+                cartMap.put("orderStatus", "In Progress...");
+                cartMap.put("totalQuantity",quantity.getText().toString());
+                cartMap.put("totalPrice",totalPrice);
+                cartMap.put("orderID",orderID+"");
+                cartMap.put("payment","Not Yet Paid");
+
+
+                firestore.collection("Order").document(auth.getCurrentUser().getUid())
+                        .collection("User").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentReference> task) {
+                                Toast.makeText(DetailedActivity.this,"To Payment", Toast.LENGTH_SHORT).show();
+
+                            }
+                        });
+
+
+                staffMap.put("orderID",orderID+"");
+                staffMap.put("address","Not yet added");
+                staffMap.put("orderStatus", "In Progress...");
+                staffMap.put("contactNumber","Not yet added");
+
+
+                firestore.collection("StaffOrder").add(staffMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+
+                    }
+                });
+
+
+
+
+
+
+
+
+                Intent intent = new Intent(DetailedActivity.this,CustomerPaymentActivity.class);
                 intent.putExtra("amount",amount);
+                intent.putExtra("orderid_detailed",orderID);
                 startActivity(intent);
             }
         });
@@ -182,55 +239,7 @@ public class DetailedActivity extends AppCompatActivity {
 
 
 
-    private void addToOrderList() {
-        String saveCurrentTime,saveCurrentDate;
-        Calendar calForDate = Calendar.getInstance();
-        int orderID = generateOrderID();
 
-
-        SimpleDateFormat currentDate = new SimpleDateFormat("yyyy - MM - dd");
-        saveCurrentDate = currentDate.format(calForDate.getTime());
-
-        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss");
-        saveCurrentTime = currentTime.format(calForDate.getTime());
-
-        final HashMap<String,Object> cartMap = new HashMap<>();
-        final HashMap<String,Object> staffMap = new HashMap<>();
-
-        cartMap.put("productName", name.getText().toString());
-        cartMap.put("productPrice",price.getText().toString());
-        cartMap.put("currentTime",saveCurrentTime);
-        cartMap.put("currentDate",saveCurrentDate);
-        cartMap.put("totalQuantity",quantity.getText().toString());
-        cartMap.put("totalPrice",totalPrice);
-        cartMap.put("orderID",orderID+"");
-        cartMap.put("payment","Not Yet Paid");
-
-
-        firestore.collection("Order").document(auth.getCurrentUser().getUid())
-                .collection("User").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentReference> task) {
-                        Toast.makeText(DetailedActivity.this,"To Payment", Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-
-
-        staffMap.put("orderID",orderID+"");
-        staffMap.put("address","Not yet added");
-        staffMap.put("orderStatus", "In Progress...");
-
-        firestore.collection("StaffOrder").add(staffMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentReference> task) {
-
-            }
-        });
-
-
-
-    }
 
 
 
