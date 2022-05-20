@@ -59,15 +59,13 @@ The first problem it will solve is it will minimize car crashes due to human tir
 
 #### Sprint 1 demo
 [![Sprint 1 Demo](https://media.discordapp.net/attachments/938793010408345691/968490072510984242/IMG_8864.png?width=2494&height=1402)](https://youtu.be/SWD4YXNsqEs "Sprint 1 Demo")
-#### Sprint 1 Retrospective
-(https://media.discordapp.net/attachments/880780080882778173/976891359216664597/Retrospective1.png?width=730&height=602) 
+
 
 ### Sprint 2
 
 #### Sprint 2 demo
 [![Sprint 2 Demo](https://cdn.discordapp.com/attachments/955364339710320663/973169934957944862/IMG_8887.png)](https://youtu.be/eN3mPii9WoE "Sprint 2 Demo")
-#### Sprint 2 Retrospective
-(https://media.discordapp.net/attachments/880780080882778173/976891853427322910/Retrospective2.png?width=721&height=601)
+
 
 ## Group members 
 
