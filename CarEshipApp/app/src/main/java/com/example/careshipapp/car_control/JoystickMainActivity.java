@@ -1,26 +1,41 @@
 package com.example.careshipapp.car_control;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.careshipapp.R;
+import com.example.careshipapp.gui.models.StaffOrderModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class JoystickMainActivity extends AppCompatActivity implements JoystickFunctionality.JoystickListener {
     private static final String TAG = "SmartcarMqttController";
@@ -45,6 +60,14 @@ public class JoystickMainActivity extends AppCompatActivity implements JoystickF
     private boolean isConnected = false;
     private ImageView camera;
     private Switch autopilot;
+    TextView orderID, address;
+    ImageView phoneCall, careShipMap;
+    Button deliverBtn;
+    StaffOrderModel staffOrderModel = null;
+    String phoneNumber;
+    Dialog dialog;
+    private FirebaseFirestore firestore;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,6 +80,88 @@ public class JoystickMainActivity extends AppCompatActivity implements JoystickF
         autopilot = (Switch) findViewById(R.id.autopilot);
         connectToMqttBroker();
 
+        orderID = findViewById(R.id.orderid_joystick);
+        address = findViewById(R.id.address_joystick);
+        deliverBtn = findViewById(R.id.deliver_btn);
+        careShipMap = findViewById(R.id.map_careship);
+        phoneCall = findViewById(R.id.phone_call);
+        dialog = new Dialog(this);
+
+
+        final Object object = getIntent().getSerializableExtra("joystick");
+        if (object instanceof StaffOrderModel) {
+            staffOrderModel = (StaffOrderModel) object;
+        }
+
+        firestore = FirebaseFirestore.getInstance();
+
+
+        if (staffOrderModel != null) {
+            orderID.setText(staffOrderModel.getOrderID());
+            address.setText(staffOrderModel.getAddress());
+            phoneNumber = staffOrderModel.getContactNumber();
+        }
+
+    
+        careShipMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openCareMap();
+            }
+        });
+        
+        
+        phoneCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MakePhoneCall(phoneNumber);
+            }
+        });
+        
+        
+
+        deliverBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                String status = "Delivered";
+
+                Map<String, Object> statusMap = new HashMap<>();
+                statusMap.put("orderStatus",status);
+
+
+                firestore.collection("StaffOrder").whereEqualTo("orderID", orderID.getText().toString())
+                        .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                                if (task.isSuccessful() && !task.getResult().isEmpty()) {
+                                    DocumentSnapshot doc = task.getResult().getDocuments().get(0);
+                                    String documentID = doc.getId();
+                                    firestore.collection("StaffOrder").document(documentID)
+                                            .update(statusMap)
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if (task.isSuccessful()) {
+                                                        Toast.makeText(JoystickMainActivity.this, "Order Has Been Delivered", Toast.LENGTH_SHORT).show();
+
+                                                    } else {
+                                                        Toast.makeText(JoystickMainActivity.this, "Error" + task.getException(), Toast.LENGTH_SHORT).show();
+
+                                                    }
+                                                }
+                                            });
+                                }
+
+                            }
+                        });
+
+
+            }
+        });
+
         autopilot.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -67,7 +172,43 @@ public class JoystickMainActivity extends AppCompatActivity implements JoystickF
             }
         });
 
+
+
+
+
+
+
+
+
     }
+
+    private void openCareMap() {
+        dialog.setContentView(R.layout.map_layout);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        Button btnClose = dialog.findViewById(R.id.close_map_btn);
+        dialog.show();
+
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+    }
+
+
+
+    private void MakePhoneCall(String phoneNumber) {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:"+phoneNumber));
+        startActivity(intent);
+
+    }
+
+
+
 
     @Override
     public void onJoystickMoved(float xCoordinate, float yCoordinate) {

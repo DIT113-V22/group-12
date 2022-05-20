@@ -6,18 +6,24 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.careshipapp.R;
 
 public class CheckoutActivity extends AppCompatActivity {
 
     Button btn;
+    Toolbar toolbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order_confirmation);
+
+        toolbar = findViewById(R.id.my_order_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
       btn = findViewById(R.id.backButton);
