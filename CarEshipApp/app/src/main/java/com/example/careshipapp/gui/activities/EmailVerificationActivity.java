@@ -23,7 +23,6 @@ import com.google.firebase.auth.FirebaseUser;
         EditText email;
         Button continueBtn;
         TextView verifyMsg;
-        private FirebaseAuth mAuth;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,7 @@ import com.google.firebase.auth.FirebaseUser;
 
             verifyMsg.setVisibility(View.INVISIBLE);
 
-            mAuth = FirebaseAuth.getInstance();
+            FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
             FirebaseUser user = mAuth.getCurrentUser();
             String userId = mAuth.getCurrentUser().getUid();   //
