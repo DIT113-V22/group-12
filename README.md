@@ -6,7 +6,9 @@
 
 ## Project background (Problem description)
 
-In this year and age where most people have hectic lives, having a faster alternative way to send and receive items can be really useful and convenient.
+In 2021, World Health Organization [stated](https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries) that about 1.3 million people had died in road crashes in the world. Moreover, [14.9 million people's death](https://www.who.int/news/item/05-05-2022-14.9-million-excess-deaths-were-associated-with-the-covid-19-pandemic-in-2020-and-2021) was linked to an infectious disease called Covid-19, from the beginning of 2020 until the end of 2021. Nowadays, it is crucial to minimize such risks from fatal outcomes on the roads and from an infectious disease, in order to potentially save many lives, and possibly, raise the quality of life.
+
+Delivery services are a preferred way of ordering certain items online, if you are unable to go straight to the facility or just want to stay at home. However, the items that are delivered straight to door are most commonly delivered by human beings, who while delivering have a risk of dying in a road accident or can transmit an airbourne disease, that upon delivery can infect the customer. Therefore, it is neccesary to come up with a solution, that would minimize the risk of transmitting a disease, or dying due to a road accident while desired items are being delivered. 
 
 
 
@@ -19,7 +21,7 @@ We want to develop a remotely controlled smart car that is able to deliver wante
 ## Purpose (Reason) 
 
 We want to make a product that will revolutionize the way goods are delivered, and they can be delivered 24/7,  in case of an emergency. Which implies that during the work day hours, the goods will be delivered using a remote control with an authorized person controlling the vehicle remotely. Moreover, we want to avoid human contact if the customer has an infectious disease, therefore it would be more convenient. 
-The first problem it will solve is it will minimize car crashes due to human tiredness during the night in the way that the vehicle is gonna have an obstacle avoidance feature and it is gonna be remotely controlled. The second problem it will solve is saving lives by minimizing transmission of airborne diseases, by having a remote car control feature. The third problem it will solve is CO2 emissions from car exhaust, since it is going to be powered by electrical batteries. 
+The first problem it will solve is it will minimize car crashes due to human tiredness during the night in the way that the vehicle is gonna have an obstacle avoidance feature and it is gonna be remotely controlled. The second problem it will solve is saving lives by minimizing transmission of airborne diseases, by having a remote car control feature. The third problem it will solve is that it will eliminate CO2 emissions from car exhaust, since it is going to be powered by electrical batteries. 
 
 
 
@@ -52,6 +54,7 @@ The first problem it will solve is it will minimize car crashes due to human tir
 - Arduino IDE
 - SmartCar Platform
 - FireBase
+- Espresso UI testing
 
 ## Our progress
 
