@@ -29,16 +29,14 @@ public class OrderActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<MyOrderModel> myOrderModelList;
     MyOrderAdapter myOrderAdapter;
-    private FirebaseAuth auth;
-    private FirebaseFirestore firestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
 
-        auth = FirebaseAuth.getInstance();
-        firestore = FirebaseFirestore.getInstance();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
 
         toolbar = findViewById(R.id.my_order_toolbar);

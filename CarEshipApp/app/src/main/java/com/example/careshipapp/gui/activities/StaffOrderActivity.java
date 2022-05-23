@@ -1,8 +1,6 @@
 package com.example.careshipapp.gui.activities;
 
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -10,15 +8,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.careshipapp.R;
-import com.example.careshipapp.gui.adapters.MyOrderAdapter;
 import com.example.careshipapp.gui.adapters.StaffOrderAdapter;
 import com.example.careshipapp.gui.models.StaffOrderModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
