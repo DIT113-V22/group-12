@@ -45,7 +45,7 @@ public class AddressActivity extends AppCompatActivity {
 
         firestore = FirebaseFirestore.getInstance();
 
-        String orderid_address = "";
+        String orderid_address;
         orderid_address = getIntent().getStringExtra("orderid_address");
         order_id.setText(orderid_address);
 
