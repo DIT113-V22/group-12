@@ -52,7 +52,7 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2.24.0
         with:
           api-level: 29
-          script: ./gradlew connectedAndroidTest
+          script: cd CarEshipApp && ./gradlew connectedAndroidTest
           
       - name: Upload Test Reports Folder
         uses: actions/upload-artifact@v2
