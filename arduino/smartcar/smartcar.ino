@@ -21,37 +21,85 @@ DifferentialControl control(leftMotor, rightMotor);
 
 SimpleCar car(control);
 
-//infrared sensor//
-const int leftIRPin = 1;
-const int rightIRPin = 2;
-const int backIRPin = 3;
-GP2Y0A02 leftIR(arduinoRuntime, leftIRPin);
-GP2Y0A02 rightIR(arduinoRuntime, rightIRPin);
-GP2Y0A21 backIR(arduinoRuntime, backIRPin);
+const auto triggerPinLeft = 2;
+const auto triggerPinRight = 4;
+const auto triggerPinFront = 6;
+
+const auto echoPinLeft = 3;
+const auto echoPinRight = 5;
+const auto echoPinFront = 7;
 
 const auto oneSecond = 1000UL;
 #ifdef __SMCE__
-const auto triggerPin = 6;
-const auto echoPin = 7;
+
 const auto mqttBrokerUrl = "127.0.0.1";
+
 #else
 const auto triggerPin = 33;
 const auto echoPin = 32;
 const auto mqttBrokerUrl = "192.168.0.10";
 #endif
 const auto maxDistance = 100;
-SR04 frontSensor(arduinoRuntime, triggerPin, echoPin, maxDistance);
+SR04 frontSensor(arduinoRuntime, triggerPinFront, echoPinFront, maxDistance);
+SR04 rightSensor(arduinoRuntime, triggerPinRight, echoPinRight, maxDistance);
+SR04 leftSensor(arduinoRuntime, triggerPinLeft, echoPinLeft, maxDistance);
 
 std::vector<char> frameBuffer;
 
 const auto THROTTLE_TOPIC = "/smartcar/carcontrol/throttle";
 const auto STEERING_TOPIC = "/smartcar/carcontrol/steering";
 const auto ULTRA_SOUND_TOPIC = "/smartcar/ultrasound/front";
-const auto LEFT_INFRARED_SENSOR = "/smartcar/infrared/left";
-const auto RIGHT_INFRARED_SENSOR = "/smartcar/infrared/right";
-const auto BACK_INFRARED_SENSOR = "/smartcar/infrared/back";
+const auto ULTRA_SOUND_TOPIC_RIGHT = "/smartcar/ultrasound/right";
+const auto ULTRA_SOUND_TOPIC_LEFT = "/smartcar/ultrasound/left";
 const auto AUTOPILOT_TOPIC = "/smartcar/autopilot";
 bool autoPilotOn = false;
+
+
+// MANUAL CONTROL
+void onMessageAction(){
+    mqtt.onMessage([](String topic, String message) {
+        if (topic == THROTTLE_TOPIC) {
+            car.setSpeed(message.toInt());
+
+        } else if (topic == STEERING_TOPIC) {
+            car.setAngle(message.toInt());
+        } else if(topic == AUTOPILOT_TOPIC){
+            if(message.toInt() == 1){
+                autoPilotOn = true;
+            }
+            else if(message.toInt() == 0){
+                autoPilotOn = false;
+            }
+        }else {
+            Serial.println(topic + " " + message);
+        }
+    });
+}
+
+
+// AUTOPILOT FEATURE
+void autoPilot(){
+
+    const auto frontDistance = frontSensor.getDistance();
+    const auto leftDistance = leftSensor.getDistance();
+    const auto rightDistance = rightSensor.getDistance();
+
+
+
+    if(frontDistance < 80 && frontDistance > 0){//this algorithm checks if there is an obstacle at the front and on the sides, in order to avoid potential collision in traffic
+
+        car.setSpeed(30);
+        car.setAngle(100);// turn right if there is an obstacle at the front
+    }else if(leftDistance < 60 && leftDistance > 0 && rightDistance == 0){
+        car.setAngle(25);// turn right if there is an obstacle on the left side
+    }else if(rightDistance < 60 && rightDistance > 0 && leftDistance == 0){
+        car.setAngle(-25);// turn left if there is an obstacle on the right side
+    }else{// otherwise, the car drives straight
+        car.setAngle(0);// drive straight forward
+        car.setSpeed(50);
+
+    }
+}
 
 
 void setup() {
@@ -84,33 +132,19 @@ void setup() {
     }
 
 
-
+//subscribe to mqtt topics from smartcar
     mqtt.subscribe("/smartcar/#", 1);
-    mqtt.onMessage([](String topic, String message) {
-        if (topic == THROTTLE_TOPIC) {
-            car.setSpeed(message.toInt());
+    onMessageAction();
 
-        } else if (topic == STEERING_TOPIC) {
-            car.setAngle(message.toInt());
-        } else if(topic == AUTOPILOT_TOPIC){
-            if(message.toInt() == 1){
-                autoPilotOn = true;
-            }
-            else if(message.toInt() == 0){
-                autoPilotOn = false;
-            }
-        }else {
-            Serial.println(topic + " " + message);
-        }
-    });
 }
+
 
 void loop() {
     if (mqtt.connected()) {
         mqtt.loop();
         const auto currentTime = millis();
 #ifdef __SMCE__
-        static auto previousFrame = 0UL;
+    static auto previousFrame = 0UL;
     if (currentTime - previousFrame >= 65) {
       previousFrame = currentTime;
       Camera.readFrame(frameBuffer.data());
@@ -122,51 +156,26 @@ void loop() {
         static auto previousTransmission = 0UL;
         if (currentTime - previousTransmission >= oneSecond) {
             previousTransmission = currentTime;
-            const auto distance = String(frontSensor.getDistance());
-            const auto leftIRDis = String(leftIR.getDistance());
-            const auto rightIRDis = String(rightIR.getDistance());
-            const auto backIRDis = String(backIR.getDistance());
+            const auto distanceFront = String(frontSensor.getDistance());
+            const auto distanceRight = String(rightSensor.getDistance());
+            const auto distanceLeft = String(leftSensor.getDistance());
 
-            mqtt.publish(ULTRA_SOUND_TOPIC, distance);
-            mqtt.publish(LEFT_INFRARED_SENSOR, leftIRDis);
-            mqtt.publish(RIGHT_INFRARED_SENSOR, rightIRDis);
-            mqtt.publish(BACK_INFRARED_SENSOR, backIRDis);
+            mqtt.publish(ULTRA_SOUND_TOPIC, distanceFront);
+            mqtt.publish(ULTRA_SOUND_TOPIC_RIGHT, distanceRight);
+            mqtt.publish(ULTRA_SOUND_TOPIC_LEFT, distanceLeft);
 
         }
     }
 #ifdef __SMCE__
 
-    if(autoPilotOn == true){
-        autoPilot();
-      }
-
+    if(autoPilotOn == true){//activate autopilot
+      autoPilot();
+     }
+     else{
+      autoPilotOn == false;//deactive autopilot
+      onMessageAction();//switch to manual control
+     }
     // Avoid over-using the CPU if we are running in the emulator
   delay(1);
 #endif
-}
-
-void autoPilot(){
-    const auto frontDistance = frontSensor.getDistance();
-    const auto leftIRDis = leftIR.getDistance();
-    const auto rightIRDis = rightIR.getDistance();
-    const auto backIRDis = backIR.getDistance();
-
-
-    if(frontDistance < 80 && frontDistance > 0){
-
-        if(leftIRDis < 40 && leftIRDis > 0 && rightIRDis == 0){
-            car.setAngle(100);
-        }
-        else if(leftIRDis == 0 && rightIRDis < 40 && rightIRDis > 0){
-            car.setAngle(-100);
-        }
-        else if(leftIRDis == 0 && rightIRDis == 0){
-            car.setAngle(100);
-        }
-    }
-    else{
-        car.setAngle(0);
-        car.setSpeed(40);
-
-    }
 }
