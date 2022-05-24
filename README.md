@@ -77,6 +77,11 @@ The first problem it will solve is it will minimize car crashes due to human tir
 
 
 [Sprint 3 Demo](https://www.youtube.com/watch?v=z4_xLcUcigM)
+
+## Get started
+- [User manual](https://github.com/DIT113-V22/group-12/wiki/User-manual)
+
+
 ## Group members 
 
  - Anton Golubenko (gusgoluan@student.gu.se)
