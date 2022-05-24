@@ -1,0 +1,28 @@
+{
+  "slots": {
+    "LeftSensor": {
+      "class": "UltraSonic",
+      "name": "Left Ultrasound Sensor",
+      "props": {
+        "trigger_pin": 2,
+        "echo_pin": 3
+      }
+    },
+    "RightSensor": {
+      "class": "UltraSonic",
+      "name": "Right Ultrasound Sensor",
+      "props": {
+        "trigger_pin": 4,
+        "echo_pin": 5
+      }
+    },
+    "FrontSensor": {
+      "class": "UltraSonic",
+      "name": "Front Ultrasound Sensor",
+      "props": {
+        "trigger_pin": 6,
+        "echo_pin": 7
+      }
+    }
+  }
+}
