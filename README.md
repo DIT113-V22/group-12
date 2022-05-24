@@ -61,18 +61,22 @@ The first problem it will solve is it will minimize car crashes due to human tir
 ### Sprint 1
 
 #### Sprint 1 demo
-![Sprint 1 Demo](https://media.giphy.com/media/5HJoeiPqjRWsLh1c6u/giphy.gif)
+![Sprint 1 Demo](https://media.giphy.com/media/GEWZmiqKogRhEPJlg9/giphy.gif)
 
+[Sprint 1 Demo](https://www.youtube.com/watch?v=SWD4YXNsqEs)
 ### Sprint 2
 
 #### Sprint 2 demo
 ![Sprint 2 Demo](https://media.giphy.com/media/D6spwGNj1GmOTaKR7c/giphy.gif)
 
+[Sprint 2 Demo](https://www.youtube.com/watch?v=eN3mPii9WoE)
 ### Sprint 3
 
 #### Sprint 3 demo
 ![Sprint 3 Demo](https://media.giphy.com/media/KkquktsWHVol9n3qnN/giphy.gif)
 
+
+[Sprint 3 Demo](https://www.youtube.com/watch?v=z4_xLcUcigM)
 ## Group members 
 
  - Anton Golubenko (gusgoluan@student.gu.se)
