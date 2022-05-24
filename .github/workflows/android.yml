@@ -37,6 +37,7 @@ jobs:
       run: |
           ./gradlew test --info
           
+          
   run-instrumented-tests:
     runs-on: macos-latest
     steps:
@@ -53,6 +54,23 @@ jobs:
           api-level: 29
           script: ./gradlew connectedAndroidTest
           
-      - name: Android Test Report
-        uses: asadmansr/android-test-report-action@v1.2.0 
-        if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
+      - name: Upload Test Reports Folder
+        uses: actions/upload-artifact@v2
+        if: ${{ always() }} # IMPORTANT: Upload reports regardless of status
+        with:
+          name: reports
+          path: CarEshipApp/ # path to where the xml test results are stored
+          
+          
+  report:
+      runs-on: ubuntu-latest
+      needs: run-instrumented-tests # The report job will run after tests job
+      if: ${{ always() }} # IMPORTANT: Execute report job regardless of status
+      steps:
+        - name: Download Test Reports Folder
+          uses: actions/download-artifact@v2
+          with:
+           name: reports
+        - name: Android Test Report
+          uses: asadmansr/android-test-report-action@v1.2.0
+          if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
