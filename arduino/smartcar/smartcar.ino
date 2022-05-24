@@ -21,9 +21,6 @@ DifferentialControl control(leftMotor, rightMotor);
 
 SimpleCar car(control);
 
-
-const auto oneSecond = 1000UL;
-#ifdef __SMCE__
 const auto triggerPinLeft = 2;
 const auto triggerPinRight = 4;
 const auto triggerPinFront = 6;
@@ -32,7 +29,11 @@ const auto echoPinLeft = 3;
 const auto echoPinRight = 5;
 const auto echoPinFront = 7;
 
+const auto oneSecond = 1000UL;
+#ifdef __SMCE__
+
 const auto mqttBrokerUrl = "127.0.0.1";
+
 #else
 const auto triggerPin = 33;
 const auto echoPin = 32;
