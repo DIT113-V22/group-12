@@ -61,13 +61,13 @@ The first problem it will solve is it will minimize car crashes due to human tir
 ### Sprint 1
 
 #### Sprint 1 demo
-[![Sprint 1 Demo](https://media.discordapp.net/attachments/938793010408345691/968490072510984242/IMG_8864.png?width=2494&height=1402)](https://youtu.be/SWD4YXNsqEs "Sprint 1 Demo")
+[![Sprint 1 Demo](https://cdn.discordapp.com/attachments/961204775934890006/978582703127543848/Careship_1.gif)](https://youtu.be/SWD4YXNsqEs "Sprint 1 Demo")
 
 
 ### Sprint 2
 
 #### Sprint 2 demo
-[![Sprint 2 Demo](https://cdn.discordapp.com/attachments/955364339710320663/973169934957944862/IMG_8887.png)](https://youtu.be/eN3mPii9WoE "Sprint 2 Demo")
+[![Sprint 2 Demo](https://cdn.discordapp.com/attachments/961204775934890006/978582703454695454/Careship.gif)](https://youtu.be/eN3mPii9WoE "Sprint 2 Demo")
 
 ### Sprint 3
 
