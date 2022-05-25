@@ -53,61 +53,72 @@
 
     <EditText
         android:id="@+id/Email"
-        android:layout_width="406dp"
-        android:layout_height="68dp"
+        android:layout_width="408dp"
+        android:layout_height="65dp"
         android:layout_marginStart="4dp"
-        android:fontFamily="@font/hammersmith_one"
         android:layout_marginTop="8dp"
         android:background="#414083D5"
         android:drawableStart="@drawable/ic_baseline_person_outline_24"
-
-        android:drawablePadding="20dp"
+        android:drawablePadding="5dp"
+        android:drawableTint="@color/careship_palette_glaucous"
+        android:fontFamily="@font/hammersmith_one"
         android:hint="@string/username"
         android:inputType="textWebEmailAddress|textPersonName"
-        android:padding="20dp"
+        android:padding="10dp"
         android:textColor="@color/careship_palette_glaucous"
-        android:drawableTint="@color/careship_palette_glaucous"
         android:textColorHint="#4083D5"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signIn" />
 
-    <EditText
-        android:id="@+id/password2"
-        android:layout_width="406dp"
-        android:layout_height="67dp"
-        android:fontFamily="@font/hammersmith_one"
-        android:layout_marginTop="440dp"
-        android:background="#414083D5"
-        android:drawableStart="@drawable/ic_baseline_vpn_key_24"
-        android:drawableEnd="@drawable/ic_baseline_visibility_24"
-        android:drawableTint="@color/careship_palette_glaucous"
-        android:drawablePadding="20dp"
-        android:hint="@string/password"
-        android:inputType="textPassword|textWebPassword"
-        android:padding="20dp"
-        android:textColor="@color/careship_palette_glaucous"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="408dp"
+        android:layout_height="65dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="50dp"
+        android:textColor="#4083D5"
         android:textColorHint="#4083D5"
+        app:layout_constraintBottom_toTopOf="@+id/LoginButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/Email"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/password2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#30ffffff"
+            android:backgroundTint="#4083D5"
+            android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+            android:drawablePadding="5dp"
+            android:drawableTint="@color/careship_palette_glaucous"
+            android:fontFamily="@font/hammersmith_one"
+            android:hint="@string/password"
+            android:inputType="textPassword|textWebPassword"
+            android:padding="10dp"
+            android:textColor="@color/careship_palette_glaucous"
+            android:textColorHint="#4083D5"
+            android:textSize="18dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/LoginButton"
         android:layout_width="115dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="72dp"
         android:background="@drawable/button"
-        android:text="login"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        app:backgroundTint="@color/bright_blue"
         android:fontFamily="@font/hammersmith_one"
+        android:text="login"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/bright_blue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password2" />
+        app:layout_constraintTop_toBottomOf="@+id/progressBar2" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/CreateAccountButton2"
@@ -156,14 +167,14 @@
     <ProgressBar
         android:id="@+id/progressBar2"
         style="?android:attr/progressBarStyle"
-        android:layout_width="76dp"
-        android:layout_height="60dp"
+        android:layout_width="81dp"
+        android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.581"
+        app:layout_constraintVertical_bias="0.6"
         tools:visibility="invisible" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
