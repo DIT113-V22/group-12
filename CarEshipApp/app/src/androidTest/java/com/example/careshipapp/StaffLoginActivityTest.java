@@ -74,7 +74,7 @@ public class StaffLoginActivityTest {
         onView(withId(R.id.loginButton)).perform(click());
         onView(withId(R.id.loginButton)).check(matches(isClickable()));
 
-        onView(withId(R.id.ForgetPassword)).check(matches(isClickable()));
+
 
     }
 

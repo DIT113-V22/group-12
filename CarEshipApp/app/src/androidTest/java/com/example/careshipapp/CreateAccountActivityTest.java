@@ -32,7 +32,7 @@ import org.junit.runner.RunWith;
     public class CreateAccountActivityTest {
 
     @Rule
-    ActivityScenarioRule <CreateAccountActivity> activityRule =
+    public ActivityScenarioRule <CreateAccountActivity> activityRule =
                 new ActivityScenarioRule<>(CreateAccountActivity.class);
 
     @Test
@@ -83,6 +83,10 @@ import org.junit.runner.RunWith;
         onView(withId(R.id.CreatePassword)).perform(typeText("Akuien@CarEship.com"));
         onView(withId(R.id.CreatePassword)).perform(clearText());
 
+    }
+
+    @Test
+    public void testPasswordInput2() {
         onView(withId(R.id.passwordReentry)).perform(typeText("Akuien@CarEship.com"));
         onView(withId(R.id.passwordReentry)).perform(clearText());
     }
@@ -103,147 +107,6 @@ import org.junit.runner.RunWith;
         public void testButtonFunctionality() {
             onView(withId(R.id.CreateAccountButton)).perform(click());
             onView(withId(R.id.CreateAccountButton)).check(matches(isClickable()));
-
-            onView(withId(R.id.ForgetPassword)).check(matches(isClickable()));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         }
 }

@@ -87,9 +87,6 @@ public class CustomerLoginActivityTest {
         onView(withId(R.id.LoginButton)).check(matches(isClickable()));
 
         onView(withId(R.id.CreateAccountButton2)).perform(click());
-        onView(withId(R.id.CreateAccountButton2)).check(matches(isClickable()));
-
-        onView(withId(R.id.ForgetPassword)).check(matches(isClickable()));
 
     }
 }
