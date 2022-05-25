@@ -26,6 +26,15 @@ public class CheckoutActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+
       btn = findViewById(R.id.backButton);
 
       btn.setOnClickListener(new View.OnClickListener() {

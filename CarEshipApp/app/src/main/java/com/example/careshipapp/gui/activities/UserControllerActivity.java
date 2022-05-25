@@ -21,9 +21,7 @@ public class UserControllerActivity extends AppCompatActivity {
       setContentView(R.layout.user_activity_controller);
 
       customerBtn =(Button) findViewById(R.id.customerButton);
-
       staffBtn = (Button) findViewById(R.id.staffButton);
-
       customerBtn.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {

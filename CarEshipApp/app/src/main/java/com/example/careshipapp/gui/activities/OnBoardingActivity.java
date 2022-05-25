@@ -21,7 +21,6 @@ public class OnBoardingActivity extends AppCompatActivity {
     SliderAdapter sliderAdapter;
     TextView[] dots;
     Button btn;
-    Animation animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +90,7 @@ public class OnBoardingActivity extends AppCompatActivity {
                 btn.setVisibility(View.VISIBLE);
             }
 
-            }
+        }
 
         @Override
         public void onPageScrollStateChanged(int state) {

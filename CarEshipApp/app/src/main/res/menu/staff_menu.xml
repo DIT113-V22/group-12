@@ -8,11 +8,4 @@
         android:icon="@drawable/ic_baseline_loginout"
         app:showAsAction="always"/>
 
-
-    <item
-        android:id="@+id/menu_my_order"
-        android:title="Order"
-        android:icon="@drawable/ic_baseline_shopping_bag_24"
-        app:showAsAction="always"/>
-
 </menu>

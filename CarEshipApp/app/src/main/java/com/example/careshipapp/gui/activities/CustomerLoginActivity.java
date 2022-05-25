@@ -2,6 +2,7 @@ package com.example.careshipapp.gui.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +16,6 @@ import android.widget.Toast;
 
 import com.example.careshipapp.R;
 
-import com.example.careshipapp.gui.ForgotPasswordAuthActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
@@ -33,6 +33,7 @@ public class CustomerLoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     FirebaseFirestore store;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,21 @@ public class CustomerLoginActivity extends AppCompatActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar2);
 
         progressBar.setVisibility(View.INVISIBLE);
+
+
+        toolbar = findViewById(R.id.home_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override

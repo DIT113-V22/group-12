@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".gui.activities.CustomerPaymentActivity">
 
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/home_toolbar"
         android:layout_width="match_parent"

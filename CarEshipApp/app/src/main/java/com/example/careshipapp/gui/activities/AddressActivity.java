@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.careshipapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,6 +29,7 @@ public class AddressActivity extends AppCompatActivity {
     EditText contact_number;
     Button done;
     FirebaseFirestore firestore;
+    Toolbar toolbar;
 
 
 
@@ -44,6 +46,20 @@ public class AddressActivity extends AppCompatActivity {
         done = findViewById(R.id.save_address);
 
         firestore = FirebaseFirestore.getInstance();
+
+        toolbar = findViewById(R.id.home_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
 
         String orderid_address;
         orderid_address = getIntent().getStringExtra("orderid_address");
