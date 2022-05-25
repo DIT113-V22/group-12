@@ -47,7 +47,7 @@
             android:name=".gui.activities.StaffLoginActivity"
             android:exported="true" />
         <activity
-            android:name=".gui.ForgotPasswordAuthActivity"
+            android:name=".gui.activities.ForgotPasswordAuthActivity"
             android:exported="true" />
         <activity
             android:name=".car_control.JoystickMainActivity"

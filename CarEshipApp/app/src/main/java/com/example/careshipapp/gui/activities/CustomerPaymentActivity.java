@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.careshipapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -34,6 +36,7 @@ public class CustomerPaymentActivity extends AppCompatActivity {
         Button completeButton;
         TextView subTotal;
         TextView orderID;
+        Toolbar toolbar;
 
     private FirebaseAuth mAuth;
         private FirebaseFirestore fStore;
@@ -80,6 +83,20 @@ public class CustomerPaymentActivity extends AppCompatActivity {
                     cardValidate();
                 }
             });
+
+            toolbar = findViewById(R.id.home_toolbar);
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+
 
         }
 

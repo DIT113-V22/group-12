@@ -8,11 +8,26 @@
     android:background="@null"
     tools:context=".gui.activities.CustomerLoginActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/home_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/sky_blue"
+        android:theme="@style/ToolbarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04"
+        app:title="Login" />
+
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="55dp"
         android:layout_height="27dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/hammersmith_one"
         app:layout_constraintEnd_toEndOf="parent"
@@ -126,10 +141,10 @@
         android:layout_marginBottom="61dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.075"
         app:srcCompat="@drawable/office_workplace" />
 
     <ProgressBar

@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.careshipapp.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,6 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
         EditText email;
         Button continueBtn;
         TextView verifyMsg;
+        Toolbar toolbar;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,20 @@ import com.google.firebase.auth.FirebaseUser;
             continueBtn = findViewById(R.id.continueBtn);
 
             verifyMsg.setVisibility(View.INVISIBLE);
+
+            toolbar = findViewById(R.id.my_order_toolbar);
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+
 
             FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
