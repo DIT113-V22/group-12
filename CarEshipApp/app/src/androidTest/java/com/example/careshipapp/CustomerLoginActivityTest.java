@@ -31,7 +31,7 @@ import org.junit.runner.RunWith;
 public class CustomerLoginActivityTest {
 
     @Rule
-    ActivityScenarioRule <CustomerLoginActivity> activityRule =
+    public ActivityScenarioRule <CustomerLoginActivity> activityRule =
             new ActivityScenarioRule<>(CustomerLoginActivity.class);
 
     @Test
