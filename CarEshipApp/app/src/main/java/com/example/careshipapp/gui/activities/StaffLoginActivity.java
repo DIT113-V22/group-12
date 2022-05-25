@@ -12,9 +12,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.careshipapp.R;
-import com.example.careshipapp.gui.ForgotPasswordAuthActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
@@ -29,9 +29,10 @@ public class StaffLoginActivity extends AppCompatActivity {
         EditText staffEmail, staffPassword;
         Button loginBtn;
         TextView forgetPass;
-    ProgressBar progressBar;
-    private FirebaseAuth mAuth;
-    FirebaseFirestore store;
+        ProgressBar progressBar;
+        private FirebaseAuth mAuth;
+        FirebaseFirestore store;
+        Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,19 @@ public class StaffLoginActivity extends AppCompatActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar3);
 
         progressBar.setVisibility(View.INVISIBLE);
+
+        toolbar = findViewById(R.id.home_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override

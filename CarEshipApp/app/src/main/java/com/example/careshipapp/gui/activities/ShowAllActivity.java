@@ -3,6 +3,7 @@ package com.example.careshipapp.gui.activities;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -44,6 +45,14 @@ public class ShowAllActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.show_all_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
         String type = getIntent().getStringExtra("type");

@@ -1,11 +1,14 @@
 package com.example.careshipapp.gui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import com.example.careshipapp.R;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -14,10 +17,27 @@ import java.util.Locale;
 
     public class PaymentConfirmationActivity extends AppCompatActivity {
 
+        Toolbar toolbar;
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.order_confirmation);
+
+            toolbar = findViewById(R.id.my_order_toolbar);
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+
+
 
             Calendar calendar = Calendar.getInstance();
 

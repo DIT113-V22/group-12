@@ -1,4 +1,4 @@
-package com.example.careshipapp.gui;
+package com.example.careshipapp.gui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.careshipapp.R;
-import com.example.careshipapp.gui.activities.UserControllerActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +23,8 @@ public class ForgotPasswordAuthActivity extends AppCompatActivity {
     EditText email;
     Button linkBtn;
     String eMail;
+    Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +36,22 @@ public class ForgotPasswordAuthActivity extends AppCompatActivity {
        email = (EditText) findViewById(R.id.Email);
        linkBtn =(Button) findViewById(R.id.sendLinkBtn);
 
+        toolbar = findViewById(R.id.my_order_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-      linkBtn.setOnClickListener(new View.OnClickListener() {
+
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+
+
+        linkBtn.setOnClickListener(new View.OnClickListener() {
 
           @Override
           public void onClick(View view) {
