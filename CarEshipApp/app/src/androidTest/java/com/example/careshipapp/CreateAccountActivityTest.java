@@ -59,7 +59,8 @@ import org.junit.runner.RunWith;
     @Test
     public void verifyElementsPositions() {
         //Using R.id.UserNAme as the relative position of comparison,
-        onView(withId(R.id.imageView14)).check(isCompletelyAbove(withId(R.id.Username)));
+        //onView(withId(R.id.imageView14)).check(isCompletelyAbove(withId(R.id.Username)));
+        onView(withId(R.id.imageView14)).check(isCompletelyAbove(withId(R.id.CreatePassword)));
         onView(withId(R.id.signIn)).check(isCompletelyAbove(withId(R.id.Username)));
         onView(withId(R.id.imageView)).check(isCompletelyAbove(withId(R.id.Username)));
         onView(withId(R.id.Username)).check(isCompletelyBelow(withId(R.id.signIn)));

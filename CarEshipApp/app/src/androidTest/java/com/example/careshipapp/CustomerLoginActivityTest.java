@@ -43,7 +43,7 @@ public class CustomerLoginActivityTest {
 
     @Test
     public void checkLoadedElements() {
-        onView(withId(R.id.imageView)).check(matches(isDisplayed()));
+        //onView(withId(R.id.imageView)).check(matches(isDisplayed()));
         onView(withId(R.id.signIn)).check(matches(isDisplayed()));
         onView(withId(R.id.Email)).check(matches(isDisplayed()));
         onView(withId(R.id.password2)).check(matches(isDisplayed()));
@@ -64,7 +64,7 @@ public class CustomerLoginActivityTest {
 
         onView(withId(R.id.LoginButton)).check(isCompletelyBelow(withId(R.id.password2)));
         onView(withId(R.id.CreateAccountButton2)).check(isCompletelyBelow(withId(R.id.password2)));
-        onView(withId(R.id.ForgetPassword)).check(isCompletelyBelow(withId(R.id.password2)));
+        onView(withId(R.id.ForgetPassword)).check(isCompletelyBelow(withId(R.id.CreateAccountButton2)));
         onView(withId(R.id.imageView17)).check(isCompletelyBelow(withId(R.id.password2)));
     }
 
@@ -82,11 +82,13 @@ public class CustomerLoginActivityTest {
     }
 
     @Test
-    public void testButtons() {
+    public void testLoginButtons() {
         onView(withId(R.id.LoginButton)).perform(click());
         onView(withId(R.id.LoginButton)).check(matches(isClickable()));
+    }
 
+    @Test
+    public void testCreateAccountButton() {
         onView(withId(R.id.CreateAccountButton2)).perform(click());
-
     }
 }
