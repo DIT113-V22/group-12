@@ -210,7 +210,7 @@ public class CustomerPaymentActivity extends AppCompatActivity {
             }
 
             private String dateString(int day, int month, int year) {
-                return   day + "-" + monthFormat(month) + "-" + year;
+                return   day + "/" + monthFormat(month) + "/" + year;
             }
 
 

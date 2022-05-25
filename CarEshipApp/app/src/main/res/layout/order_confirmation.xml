@@ -33,10 +33,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orderID" />
 
+
     <TextView
         android:id="@+id/estimatedDeliveryDate"
-        android:layout_width="345dp"
-        android:layout_height="38dp"
+        android:layout_width="351dp"
+        android:layout_height="41dp"
         android:layout_marginEnd="20dp"
         android:fontFamily="@font/hammersmith_one"
         android:textColor="#000000"
@@ -44,11 +45,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="@+id/estimatedDeliver"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.838" />
-
+        app:layout_constraintVertical_bias="0.824" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -85,18 +85,18 @@
 
     <TextView
         android:id="@+id/dateText"
-        android:layout_width="309dp"
-        android:layout_height="39dp"
+        android:layout_width="369dp"
+        android:layout_height="41dp"
         android:fontFamily="@font/hammersmith_one"
         android:text=""
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.026"
-        app:layout_constraintStart_toStartOf="@+id/date"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.695" />
+        app:layout_constraintVertical_bias="0.684" />
 
     <TextView
         android:id="@+id/date"
@@ -141,8 +141,8 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/button_coral"
         android:drawableBottom="@drawable/ic_baseline_home_24"
-        android:fontFamily="@font/hammersmith_one"
         android:drawableTint="@color/careship_palette_beige"
+        android:fontFamily="@font/hammersmith_one"
         android:textAllCaps="false"
         android:textColor="@color/careship_palette_beige"
         android:textSize="20sp"
