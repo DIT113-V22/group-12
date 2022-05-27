@@ -1,8 +1,10 @@
 package com.example.careshipapp.gui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -10,11 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.careshipapp.R;
-import com.example.careshipapp.gui.adapters.MyOrderAdapter;
 import com.example.careshipapp.gui.adapters.StaffOrderAdapter;
+import com.example.careshipapp.gui.fragments.HomeFragment;
 import com.example.careshipapp.gui.models.StaffOrderModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,11 +30,13 @@ import java.util.List;
 public class StaffOrderActivity extends AppCompatActivity {
 
 
-    FirebaseFirestore firestore;
+    private FirebaseFirestore firestore;
+    private FirebaseAuth auth;
     RecyclerView recyclerView;
     List<StaffOrderModel> staffOrderModelList;
     StaffOrderAdapter staffOrderAdapter;
     Toolbar toolbar;
+
 
 
 
@@ -44,10 +47,13 @@ public class StaffOrderActivity extends AppCompatActivity {
 
 
         firestore = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
 
-        toolbar = findViewById(R.id.my_order_toolbar);
+        toolbar = findViewById(R.id.home_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_home_24);
+
 
 
         recyclerView = findViewById(R.id.cart_rec2);
@@ -74,6 +80,27 @@ public class StaffOrderActivity extends AppCompatActivity {
         });
 
 
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.staff_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if(id == R.id.menu_logout){
+            auth.signOut();
+            startActivity(new Intent(StaffOrderActivity.this, UserControllerActivity.class));
+            finish();
+
+        }
+
+        return true;
     }
 
 

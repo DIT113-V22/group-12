@@ -7,15 +7,14 @@
     tools:context=".gui.activities.StaffOrderActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/my_order_toolbar"
+        android:id="@+id/home_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/careship_palette_glaucous"
-        android:theme="@style/ToolbarTheme"
+        android:background="@color/sky_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Delivery List" />
+        android:theme="@style/ToolbarTheme"/>
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -25,7 +24,7 @@
         android:layout_marginTop="21dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_order_toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/home_toolbar"
         app:layout_constraintWidth_percent=".9"
         tools:listitem="@layout/staff_order_item" />
 

@@ -24,7 +24,7 @@ public class SliderAdapter extends PagerAdapter {
     }
 
 
-    int imagesArray[] = {
+    int[] imagesArray = {
 
             R.drawable.onboardscreen1,
             R.drawable.onboardscreen2,
@@ -34,14 +34,14 @@ public class SliderAdapter extends PagerAdapter {
     };
 
 
-    int headingArray[] = {
+    int[] headingArray = {
             R.string.first_slide,
             R.string.second_slide,
             R.string.third_slide,
 
     };
 
-    int descriptionArray[] = {
+    int[] descriptionArray = {
             R.string.description,
             R.string.description_second,
             R.string.description_third,

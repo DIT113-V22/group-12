@@ -8,11 +8,26 @@
     android:background="@null"
     tools:context=".gui.activities.CustomerLoginActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/home_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/sky_blue"
+        android:theme="@style/ToolbarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04"
+        app:title="Login" />
+
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="55dp"
         android:layout_height="27dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/hammersmith_one"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,8 +58,8 @@
 
     <EditText
         android:id="@+id/staffEmail"
-        android:layout_width="411dp"
-        android:layout_height="54dp"
+        android:layout_width="410dp"
+        android:layout_height="55dp"
         android:background="#30ffffff"
         android:backgroundTint="@color/careship_palette_glaucous"
         android:drawableStart="@drawable/ic_baseline_person_outline_24"
@@ -60,48 +75,53 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signIn" />
 
-    <EditText
-        android:id="@+id/staffPassword"
-        android:layout_width="411dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="10dp"
-        android:background="#30ffffff"
-        android:backgroundTint="#4083D5"
-        android:drawableStart="@drawable/ic_baseline_vpn_key_24"
-        android:drawableEnd="@drawable/ic_baseline_visibility_24"
-        android:drawablePadding="20dp"
-        android:fontFamily="@font/hammersmith_one"
-        android:drawableTint="@color/careship_palette_glaucous"
-        android:hint="@string/password"
-        android:inputType="textPassword|textWebPassword"
-        android:padding="5dp"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="410dp"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="50dp"
         android:textColor="#4083D5"
         android:textColorHint="#4083D5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/staffEmail"
-        app:layout_constraintVertical_bias="0.04" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/staffPassword"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="#30ffffff"
+            android:backgroundTint="#4083D5"
+            android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+            android:drawablePadding="20dp"
+            android:drawableTint="@color/careship_palette_glaucous"
+            android:fontFamily="@font/hammersmith_one"
+            android:hint="@string/password"
+            android:inputType="textPassword|textWebPassword"
+            android:padding="5dp"
+            android:textColor="#4083D5"
+            android:textColorHint="#4083D5"
+            tools:targetApi="m" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginButton"
         android:layout_width="159dp"
         android:layout_height="54dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:textAllCaps="false"
         android:background="@drawable/button"
         android:backgroundTint="#4083D5"
         android:fontFamily="@font/hammersmith_one"
         android:text="Login"
-        android:textSize="20sp"
+        android:textAllCaps="false"
         android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/staffPassword"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/forgetPassword"
@@ -126,24 +146,25 @@
         android:layout_marginBottom="61dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.075"
         app:srcCompat="@drawable/office_workplace" />
 
     <ProgressBar
         android:id="@+id/progressBar3"
         style="?android:attr/progressBarStyle"
-        android:layout_width="71dp"
-        android:layout_height="0dp"
-
+        android:layout_width="95dp"
+        android:layout_height="120dp"
         android:layout_marginTop="429dp"
         android:layout_marginBottom="123dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/forgetPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.215" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

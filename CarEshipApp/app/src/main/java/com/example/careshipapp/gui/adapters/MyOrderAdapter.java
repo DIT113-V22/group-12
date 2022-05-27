@@ -16,12 +16,10 @@ import java.util.List;
 
 public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHolder> {
 
-    private Context context;
     private List<MyOrderModel> list;
     int totalAmount = 0;
 
     public MyOrderAdapter(Context context, List<MyOrderModel> list) {
-        this.context = context;
         this.list = list;
     }
 
@@ -43,16 +41,6 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
 
 
         //total amount passed to payment activity
-        /*
-        totalAmount = totalAmount + list.get(position).getTotalPrice();
-        Intent intent = new Intent("MyTotalAmount");
-        intent.putExtra("totalAmount",totalAmount);
-
-        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
-
-         */
-
-
 
 
     }
