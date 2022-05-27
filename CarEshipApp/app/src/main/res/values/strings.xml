@@ -48,10 +48,14 @@
     <string name="first_slide">Welcome to CarEship</string>
     <string name="second_slide">Choose Your Medicine</string>
     <string name="third_slide">No Contact Delivery</string>
-    <string name="description">"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        "</string>
+    <string name="description">"Hey!
+    Thank you for your interest in careship.
+    We are super happy to have you here!
+    "</string>
+    <string name="description_second">Search for the medicine you want and you will receive it right away!!</string>
+    <string name="description_third">Stay well and order your medicine whenever you want!
+It will be delivered to your address</string>
+
     <string name="autopilot" />
     <string name="Autopilot">Autopilot</string>
     <string name="card_holder">Card holder</string>

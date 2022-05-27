@@ -71,8 +71,22 @@ public class AddressActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                String address = post_address.getText().toString() + " " + post_number.getText().toString();
+                String address = post_address.getText().toString();
+                String postNumber = post_number.getText().toString();
                 String contact = contact_number.getText().toString();
+
+                if(address.isEmpty() ||postNumber.isEmpty() || contact.isEmpty() ){
+                    Toast.makeText(AddressActivity.this, "Please enter non-empty values.", Toast.LENGTH_SHORT).show();
+                }
+                else if (postNumber.length() != 5) {
+                    Toast.makeText(AddressActivity.this, "Please enter your 5 digit post code.", Toast.LENGTH_SHORT).show();
+                    post_number.requestFocus();
+
+                } else if(contact.length() != 10)  {
+                    Toast.makeText(AddressActivity.this, "Please enter a valid number.", Toast.LENGTH_SHORT).show();
+                    contact_number.requestFocus();
+                } else {
+
 
                 Map<String, Object> addressMap = new HashMap<>();
                 addressMap.put("address",address);
@@ -108,6 +122,7 @@ public class AddressActivity extends AppCompatActivity {
                             }
                         });
 
+            }
             }
         });
 

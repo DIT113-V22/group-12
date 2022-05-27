@@ -100,7 +100,6 @@ public class StaffLoginActivity extends AppCompatActivity {
 
             forgetPass = (TextView) findViewById(R.id.forgetPassword);
             forgetPass.setOnClickListener(new View.OnClickListener() {
-
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getApplicationContext(), ForgotPasswordAuthActivity.class);

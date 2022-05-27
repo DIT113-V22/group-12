@@ -36,7 +36,7 @@ public class ForgotPasswordAuthActivity extends AppCompatActivity {
        email = (EditText) findViewById(R.id.Email);
        linkBtn =(Button) findViewById(R.id.sendLinkBtn);
 
-        toolbar = findViewById(R.id.my_order_toolbar);
+        toolbar = findViewById(R.id.home_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

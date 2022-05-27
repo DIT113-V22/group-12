@@ -62,7 +62,10 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2.24.0
         with:
           api-level: 29
-          script: cd CarEshipApp && ./gradlew connectedAndroidTest
+          profile: Nexus 6
+          arch: x86_64
+          working-directory: CarEshipApp
+          script: ./gradlew connectedAndroidTest
           
       - name: Upload Test Reports Folder
         uses: actions/upload-artifact@v2
@@ -82,5 +85,6 @@ jobs:
           with:
            name: reports
         - name: Android Test Report
-          uses: asadmansr/android-test-report-action@v1.2.0
+          uses: asadmansr/android-test-report-action@v1.2.0 
           if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
+          #Adopted from https://github.com/asadmansr/android-test-report-action-example
