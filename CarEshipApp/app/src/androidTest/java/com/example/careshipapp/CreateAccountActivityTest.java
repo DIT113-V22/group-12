@@ -15,19 +15,22 @@ import static org.junit.Assert.assertEquals;
 
 import android.content.Context;
 
+import androidx.test.espresso.intent.Intents;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.filters.LargeTest;
 import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.example.careshipapp.gui.activities.CreateAccountActivity;
 
+import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 
     @RunWith(AndroidJUnit4.class)
-
+    @LargeTest
 
     public class CreateAccountActivityTest {
 
@@ -59,7 +62,7 @@ import org.junit.runner.RunWith;
     @Test
     public void verifyElementsPositions() {
         //Using R.id.UserNAme as the relative position of comparison,
-        //onView(withId(R.id.imageView14)).check(isCompletelyAbove(withId(R.id.Username)));
+        onView(withId(R.id.imageView14)).check(isCompletelyAbove(withId(R.id.Username)));
         onView(withId(R.id.imageView14)).check(isCompletelyAbove(withId(R.id.CreatePassword)));
         onView(withId(R.id.signIn)).check(isCompletelyAbove(withId(R.id.Username)));
         onView(withId(R.id.imageView)).check(isCompletelyAbove(withId(R.id.Username)));
@@ -109,5 +112,11 @@ import org.junit.runner.RunWith;
             onView(withId(R.id.CreateAccountButton)).perform(click());
             onView(withId(R.id.CreateAccountButton)).check(matches(isClickable()));
 
+        }
+
+        @After
+        public void tearDown() {
+            activityRule = null;
+            Intents.release();
         }
 }
