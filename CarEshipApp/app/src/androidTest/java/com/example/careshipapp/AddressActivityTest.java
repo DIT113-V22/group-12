@@ -52,7 +52,7 @@ public class AddressActivityTest {
     @Test
     public void testPostAddressEntry(){
         onView(withId(R.id.order_id_address)).check(matches(isDisplayed()));
-        onView(withId(R.id.order_id_address)).perform(typeText("Lindholmen"));
+        onView(withId(R.id.order_id_address)).perform(typeText("Kuggen 45"));
         onView(withId(R.id.order_id_address)).perform(clearText());
     }
 

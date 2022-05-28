@@ -60,7 +60,7 @@ public class CustomerLoginActivityTest {
 
     @Test
     public void verifyPositionsOfElements() {
-        onView(withId(R.id.imageView)).check(isCompletelyAbove(withId(R.id.password2)));
+        onView(withId(R.id.imageView)).check(isCompletelyAbove(withId(R.id.Email)));
         onView(withId(R.id.signIn)).check(isCompletelyAbove(withId(R.id.password2)));
         onView(withId(R.id.Email)).check(isCompletelyAbove(withId(R.id.password2)));
 
@@ -80,7 +80,7 @@ public class CustomerLoginActivityTest {
 
     @Test
     public void verifyPasswordInput() {
-        onView(withId(R.id.password2)).perform(typeText("Lasagne"));
+        onView(withId(R.id.password2)).perform(typeText("Lasagnecafe"));
         onView(withId(R.id.password2)).perform(clearText());
     }
 

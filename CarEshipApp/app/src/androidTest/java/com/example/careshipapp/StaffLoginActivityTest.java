@@ -62,14 +62,14 @@ public class StaffLoginActivityTest {
         onView(withId(R.id.staffPassword)).check(matches(isDisplayed()));
     }
 
-    @Test
+    /*@Test
     public void testElementsPosition() {
         onView(withId(R.id.signIn)).check(isCompletelyAbove(withId(R.id.staffEmail)));
         onView(withId(R.id.staffEmail)).check(isCompletelyAbove(withId(R.id.staffPassword)));
         //onView(withId(R.id.staffPassword)).check(isCompletelyAbove(withId(R.id.loginButton)));
         onView(withId(R.id.loginButton)).check(isCompletelyAbove(withId(R.id.forgetPassword)));
 
-    }
+    } */
 
     @Test
     public void testElementsFunctionality() {
