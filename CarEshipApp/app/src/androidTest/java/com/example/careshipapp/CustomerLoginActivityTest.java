@@ -80,7 +80,7 @@ public class CustomerLoginActivityTest {
 
     @Test
     public void verifyPasswordInput() {
-        onView(withId(R.id.password2)).perform(typeText("Lasagne2020"));
+        onView(withId(R.id.password2)).perform(typeText("Lasagne"));
         onView(withId(R.id.password2)).perform(clearText());
     }
 
