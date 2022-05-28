@@ -68,7 +68,6 @@ public class CustomerLoginActivityTest {
 
         onView(withId(R.id.LoginButton)).check(isCompletelyBelow(withId(R.id.password2)));
         onView(withId(R.id.CreateAccountButton2)).check(isCompletelyBelow(withId(R.id.password2)));
-        onView(withId(R.id.ForgetPassword)).check(isCompletelyBelow(withId(R.id.CreateAccountButton2)));
         onView(withId(R.id.imageView17)).check(isCompletelyBelow(withId(R.id.password2)));
     }
 
@@ -81,7 +80,7 @@ public class CustomerLoginActivityTest {
 
     @Test
     public void verifyPasswordInput() {
-        onView(withId(R.id.password2)).perform(typeText("Lasagne"));
+        onView(withId(R.id.password2)).perform(typeText("Lasagne2020"));
         onView(withId(R.id.password2)).perform(clearText());
     }
 
@@ -93,7 +92,7 @@ public class CustomerLoginActivityTest {
 
     @Test
     public void testCreateAccountButton() {
-        onView(withId(R.id.CreateAccountButton2)).perform(click());
+        onView(withId(R.id.CreateAccountButton2)).check(matches(isClickable()));
     }
 
     @After

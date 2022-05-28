@@ -49,7 +49,6 @@ import org.junit.runner.RunWith;
     public void verifyLoadedElements() {
         onView(withId(R.id.imageView)).check(matches(isDisplayed()));
         onView(withId(R.id.signIn)).check(matches(isDisplayed()));
-        onView(withId(R.id.Username)).check(matches(isDisplayed()));
         onView(withId(R.id.CreatePassword)).check(matches(isDisplayed()));
         onView(withId(R.id.passwordReentry)).check(matches(isDisplayed()));
         onView(withId(R.id.CreateAccountButton)).check(matches(isDisplayed()));
@@ -103,13 +102,13 @@ import org.junit.runner.RunWith;
 
     @Test
     public void testZipInput() {
-        onView(withId(R.id.zipCode)).perform(typeText("152684"));
+        onView(withId(R.id.zipCode)).perform(typeText("1526"));
         onView(withId(R.id.zipCode)).perform(clearText());
     }
 
         @Test
         public void testButtonFunctionality() {
-            onView(withId(R.id.CreateAccountButton)).perform(click());
+            //onView(withId(R.id.CreateAccountButton)).perform(click());
             onView(withId(R.id.CreateAccountButton)).check(matches(isClickable()));
 
         }
