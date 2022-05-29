@@ -33,9 +33,6 @@ jobs:
       run: ./gradlew build
       
  
-    - name: Run unit tests
-      run: |
-          ./gradlew test --info
           
           
   run-instrumented-tests:
