@@ -45,15 +45,17 @@ public class AddressActivityTest {
         onView(withId(R.id.imageView20)).check(matches(isDisplayed()));
         onView(withId(R.id.imageView9)).check(matches(isDisplayed()));
         onView(withId(R.id.textView22)).check(matches(isDisplayed()));
+        onView(withId(R.id.order_id_address)).check(matches(isDisplayed()));
 
     }
 
 
     @Test
     public void testPostAddressEntry(){
-        onView(withId(R.id.order_id_address)).check(matches(isDisplayed()));
-        onView(withId(R.id.order_id_address)).perform(typeText("Kuggen 45"));
-        onView(withId(R.id.order_id_address)).perform(clearText());
+        onView(withId(R.id.post_address)).check(matches(isDisplayed()));
+        onView(withId(R.id.post_address)).perform(typeText("48296"));
+        onView(withId(R.id.post_address)).perform(clearText());
+
     }
 
     @Test
