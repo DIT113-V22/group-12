@@ -74,6 +74,7 @@ We plan to develop an application using Android studio as a GUI. The application
 
 ## Documentations
 - [Sprints retrospectives](https://github.com/DIT113-V22/group-12/wiki/Sprints-retrospectives)
+- [Software architecture](https://github.com/DIT113-V22/group-12/wiki/Software-architecture)
 
 
 ## User testing
