@@ -58,32 +58,23 @@ We plan to develop an application using Android studio as a GUI. The application
 - SmartCar Platform
 - FireBase
 - Espresso UI testing
-
-## Our progress
-
-### Sprint 1
+- Godot
 
 
-![Sprint 1 Demo](https://media.giphy.com/media/GEWZmiqKogRhEPJlg9/giphy.gif)
-
-[Sprint 1 Demo](https://www.youtube.com/watch?v=SWD4YXNsqEs)
-### Sprint 2
-
-
-![Sprint 2 Demo](https://media.giphy.com/media/D6spwGNj1GmOTaKR7c/giphy.gif)
-
-[Sprint 2 Demo](https://www.youtube.com/watch?v=eN3mPii9WoE)
-### Sprint 3
-
-
-![Sprint 3 Demo](https://media.giphy.com/media/KkquktsWHVol9n3qnN/giphy.gif)
-
-
-[Sprint 3 Demo](https://www.youtube.com/watch?v=z4_xLcUcigM)
 
 ## Get started
 - [User manual](https://github.com/DIT113-V22/group-12/wiki/User-manual)
 - [User get started guideline](https://github.com/DIT113-V22/group-12/wiki/User-set-up-guideline)
+
+## Demo Video
+
+![Final demo](https://media.giphy.com/media/bxGth4W1xC47pTvpSz/giphy.gif)
+
+[Final Demo](https://www.youtube.com/watch?v=0R-HbglTFlE)
+
+## Documentations
+- [Sprints retrospectives](https://github.com/DIT113-V22/group-12/wiki/Sprints-retrospectives)
+
 
 ## User testing
 
